@@ -1,5 +1,4 @@
 //http://www.colorschemer.com/online.html
-//test commit
 
 package photoelectric_effect;
 
@@ -76,12 +75,19 @@ public class Simulation extends JPanel{
         
         //test position
         paint.setColor(Electron);
-        paint.drawOval(100, 370, 20,20);
-        paint.drawString("e-", 106, 384);
-        paint.drawOval(150, 500, 20,20);
-        paint.drawString("e-", 156, 514);
-        paint.drawOval(300, 330, 20,20);
-        paint.drawString("e-", 306, 344);
+        paint.drawOval(456, 519, 20, 20);
+        paint.setColor(Photon);
+        paint.drawOval(276,252,3,3);
+        paint.drawString("hf : example", 279, 252);
+        paint.drawOval(164, 70, 3, 3);
+        paint.drawString("hf : example", 167, 70);
+        paint.drawOval(70, 164, 3, 3);
+        paint.drawString("hf : example", 73,164);
+        paint.drawOval(311,134,3,3);
+        paint.drawString("hf : example",314, 134);
+        paint.drawOval(223,154,3,3);
+        paint.drawString("hf : example", 226, 154);
+        
         
         //drawing photon
         g.setColor(Photon);
@@ -166,7 +172,29 @@ public class Simulation extends JPanel{
         game.add(p);
         frame.add(game);
         game.photon.add(new Photon());
-        game.electron.add(new Electron());
+        
+        for (int i=1;i<4;i++){
+            int electronX;
+            int electronY;
+            switch (i){
+                case 1:
+                    electronX=100;
+                    electronY=370;
+                    game.electron.add(new Electron(electronX, electronY));break;
+                case 2:
+                    electronX=150;
+                    electronY=500;
+                    game.electron.add(new Electron(electronX, electronY));break;
+                case 3:    
+                    electronX=300;
+                    electronY=330;
+                    game.electron.add(new Electron(electronX, electronY));break;
+                case 4:
+                    break;
+            }
+            
+        }
+        
         
         while(true) { //game loop
                 while(pause!=true){
