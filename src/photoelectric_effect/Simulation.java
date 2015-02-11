@@ -12,20 +12,6 @@ import javax.swing.*;
 public class Simulation extends JPanel{
     
     //attributes
-    int x=300;
-    int y=300;
-    int xv=1;
-    int yv=-1;
-    int minx=0;
-    int miny=0;
-    int maxx=585;
-    int maxy=550;
-    
-    int px=0;
-    int py=0;
-    int pxv=1;
-    int pyv=1;
-    
     int ERed=46;
     int EGreen=0;
     int EBlue=184;
@@ -113,25 +99,9 @@ public class Simulation extends JPanel{
         }
         
     }
-        
-    
-    
-    public void Move(){
-        if (px<300){
-            px=px+pxv;
-            py=py+pyv;    
-        }
-        else{
-            x=x+xv;
-            y=y+yv;
-        }
-    }
    
-    public void move1(){
-        for (int i=0; i < electron.size();i++){
-            electron.get(i).Boundaries();
-            electron.get(i).Collide();
-        }
+    public void update(){
+        
         for (int i=0; i<photon.size();i++){
             photon.get(i).Boundaries();
             photon.get(i).Collide();
@@ -154,6 +124,7 @@ public class Simulation extends JPanel{
         JButton DecIntensity = new JButton("Decrease Intensity");
         GridBagConstraints c = new GridBagConstraints();
         int CountIntensity=1;
+        
         //action listeners for buttons
         Play.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -199,7 +170,7 @@ public class Simulation extends JPanel{
         
         while(true) { //game loop
                 while(pause!=true){
-                    game.move1();
+                    game.update();
                     game.repaint();
                     Thread.sleep(20);
                 }
