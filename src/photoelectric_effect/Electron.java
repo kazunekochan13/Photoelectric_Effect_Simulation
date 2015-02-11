@@ -8,14 +8,16 @@ package photoelectric_effect;
 public class Electron{
     
     //attributes
-    int x=50;
-    int y=50;
+    int x;
+    int y;
     int xv=2;//(int)Math.floor(Math.random()*5)+1;
-    int yv=2;//(int)Math.floor(Math.random()*5)+1;
+    int yv=-2;//(int)Math.floor(Math.random()*5)+1;
     int minx=0;
     int miny=0;
     int maxx=600;
     int maxy=600;
+    
+    Boolean release = false;
     
     public Electron(){
         
@@ -42,31 +44,11 @@ public class Electron{
         return String.valueOf(y);
     }
     
-    public void Boundaries(){
-        if (x==maxx){
-            x=0;
-            y=0;
+    public void Update(){
+        if (release==true){
+            x=x+xv;
+            y=y+yv;
         }
-        if (y==maxy){
-            y=0;
-            x=0;
-        }
-    }
-    public void Collide(){
-        if (x<minx) {
-            xv=-xv;
-        }
-        if (x>maxx){
-            xv=-xv;
-        }
-        if (y<miny) {
-            yv=-yv;
-        }
-        if (y>maxy){
-            yv=-yv;
-        }
-        x=x+xv;
-        y=y+yv;
     }
     
 }
