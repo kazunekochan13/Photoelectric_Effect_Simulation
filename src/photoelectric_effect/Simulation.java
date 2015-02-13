@@ -111,7 +111,7 @@ public class Simulation extends JPanel{
         distanceA = ((electron.get(0).getxPos()+10)-(photon.get(0).getxPos()+3))*((electron.get(0).getxPos()+10)-(photon.get(0).getxPos()+3));
         distanceB = (((electron.get(0).getyPos()+10)-(photon.get(0).getyPos()+3)))*(((electron.get(0).getyPos()+10)-(photon.get(0).getyPos()+1)));
         radii = (int) Math.sqrt(((distanceA)+(distanceB)));
-        System.out.println(radii);
+        //System.out.println(radii);
         if (radii<=11){
             electron.get(0).changeStatus();
             photon.get(0).changeStatus();
@@ -130,7 +130,7 @@ public class Simulation extends JPanel{
         
         JPanel p = new JPanel(new GridBagLayout());
         JButton Play = new JButton("Play/Pause");
-        JButton Pause = new JButton("Pause");
+        JButton Restart = new JButton("Restart");
         JButton AddIntensity = new JButton("Add Intensity");
         JButton DecIntensity = new JButton("Decrease Intensity");
         GridBagConstraints c = new GridBagConstraints();
@@ -142,7 +142,7 @@ public class Simulation extends JPanel{
                 pause=!pause;
             }
         });
-        Pause.addActionListener(new ActionListener(){
+        Restart.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 
             }
@@ -167,7 +167,7 @@ public class Simulation extends JPanel{
         p.add(Play,c);
         c.gridx=1;
         c.gridy=0;
-        p.add(Pause,c);
+        p.add(Restart,c);
         c.gridx=2;
         c.gridy=0;
         p.add(AddIntensity,c);
