@@ -75,8 +75,11 @@ public class Simulation extends JPanel{
         //drawing photon
         g.setColor(Photon);
         for (int i=0; i< photon.size();i++){
-            g.drawOval(photon.get(i).getxPos(),photon.get(i).getyPos(),3,3);
-            g.drawString("hf:",photon.get(i).getxPos()+3,photon.get(i).getyPos());
+            if (photon.get(i).getStatus()==false){
+                g.drawOval(photon.get(i).getxPos(),photon.get(i).getyPos(),3,3);
+                g.drawString("hf:",photon.get(i).getxPos()+3,photon.get(i).getyPos());
+            }
+            
         }
         
         
@@ -101,14 +104,20 @@ public class Simulation extends JPanel{
         for (int i=0; i<photon.size();i++){
             photon.get(i).Move();
         }*/
-        photon.get(0).Move();
+        
         int radii;
         int distanceA;
         int distanceB;
-        distanceA = (((electron.get(0).getxPos()+10)-(photon.get(0).getxPos()+1)))^2;
-        distanceB = (((electron.get(0).getyPos()+10)-(photon.get(0).getyPos()+1)))^2;
-        radii = (((distanceA))+((distanceB)))^(1/2);
+        distanceA = ((electron.get(0).getxPos()+10)-(photon.get(0).getxPos()+3))*((electron.get(0).getxPos()+10)-(photon.get(0).getxPos()+3));
+        distanceB = (((electron.get(0).getyPos()+10)-(photon.get(0).getyPos()+3)))*(((electron.get(0).getyPos()+10)-(photon.get(0).getyPos()+1)));
+        radii = (int) Math.sqrt(((distanceA)+(distanceB)));
         System.out.println(radii);
+        if (radii<=11){
+            electron.get(0).changeStatus();
+            photon.get(0).changeStatus();
+        }
+        photon.get(0).Move();
+        electron.get(0).Update();
     }
     
     public static void main(String[] args) throws InterruptedException {
@@ -231,7 +240,7 @@ public class Simulation extends JPanel{
                 while(pause!=true){
                     game.update();
                     game.repaint();
-                    Thread.sleep(50);
+                    Thread.sleep(25);
                 }
         }
     }

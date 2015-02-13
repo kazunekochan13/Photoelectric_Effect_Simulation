@@ -44,8 +44,8 @@ public class Electron{
         return String.valueOf(y);
     }
     
-    public Boolean returnStatus(){
-        return release;
+    public void changeStatus(){
+        release=true;
     }
     
     public void Absorb(int photonX, int photonY){
@@ -62,10 +62,10 @@ public class Electron{
     
     public void Update(){
         
-        
+        if (release==true){
             x=x+xv;
             y=y+yv;
-        
+        }
     }
     
 }

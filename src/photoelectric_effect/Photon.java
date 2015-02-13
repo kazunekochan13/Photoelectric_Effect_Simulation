@@ -26,6 +26,8 @@ public class Photon extends JPanel{
     int PhoBlue=0;
     int PhoGreen=99;
     
+    Boolean absorb=false;
+    
     public Photon(){
         
     }
@@ -50,6 +52,13 @@ public class Photon extends JPanel{
     public String readY(){
         return String.valueOf(y);
     }
+    public void changeStatus(){
+        absorb=true;
+    }
+    
+    public Boolean getStatus(){
+        return absorb;
+    }
     
     public void Boundaries(){
         if (x==maxx){
@@ -63,20 +72,23 @@ public class Photon extends JPanel{
     }
     
     public void Move(){
-        if (x<minx) {
-            xv=-xv;
-        }
-        if (x>maxx){
-            xv=-xv;
-        }
-        if (y<miny) {
-            yv=-yv;
-        }
-        if (y>maxy){
-            yv=-yv;
-        }
-        x=x+xv;
-        y=y+yv;
+        if (absorb==false){
+            if (x<minx) {
+                xv=-xv;
+            }
+            if (x>maxx){
+                xv=-xv;
+            }
+            if (y<miny) {
+                yv=-yv;
+            }
+            if (y>maxy){
+                yv=-yv;
+            }
+            x=x+xv;
+            y=y+yv;
     }
+        }
+        
     
 }
