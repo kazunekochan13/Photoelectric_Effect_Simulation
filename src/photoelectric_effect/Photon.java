@@ -15,12 +15,12 @@ public class Photon extends JPanel{
     //attributes
     int x=50;
     int y=50;
-    int xv=2;
-    int yv=2;
+    int xv=1;
+    int yv=3;
     int minx=0;
     int miny=0;
-    int maxx=600;
-    int maxy=600;
+    int maxx=678;
+    int maxy=557;
     
     int PhoRed=199;
     int PhoBlue=0;
@@ -62,7 +62,7 @@ public class Photon extends JPanel{
         }
     }
     
-    public void Collide(){
+    public void Move(){
         if (x<minx) {
             xv=-xv;
         }

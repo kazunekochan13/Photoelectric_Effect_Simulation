@@ -27,7 +27,6 @@ public class Simulation extends JPanel{
     int MetBlue=160;
     int MetGreen=160;
     static Boolean pause=false;
-    private JButton Play;
     
     ArrayList<Electron> electron = new ArrayList<Electron>();
     ArrayList<Photon> photon = new ArrayList<Photon>();
@@ -73,22 +72,6 @@ public class Simulation extends JPanel{
         }
         
         
-        //test position
-        paint.setColor(Electron);
-        paint.drawOval(456, 519, 20, 20);
-        paint.setColor(Photon);
-        paint.drawOval(276,252,3,3);
-        paint.drawString("hf : example", 279, 252);
-        paint.drawOval(164, 70, 3, 3);
-        paint.drawString("hf : example", 167, 70);
-        paint.drawOval(70, 164, 3, 3);
-        paint.drawString("hf : example", 73,164);
-        paint.drawOval(311,134,3,3);
-        paint.drawString("hf : example",314, 134);
-        paint.drawOval(223,154,3,3);
-        paint.drawString("hf : example", 226, 154);
-        
-        
         //drawing photon
         g.setColor(Photon);
         for (int i=0; i< photon.size();i++){
@@ -107,12 +90,25 @@ public class Simulation extends JPanel{
     }
    
     public void update(){
-        
-        for (int i=0; i<photon.size();i++){
-            photon.get(i).Boundaries();
-            photon.get(i).Collide();
+        /*for (int j=0; j<electron.size();j++){
+            if (electron.get(j).returnStatus()==false){
+                for (int i=0; i<photon.size();i++){
+                    electron.get(j).Absorb(photon.get(i).getX(),photon.get(i).getY()); 
+                }
+            }
+        electron.get(j).Update();
         }
-        
+        for (int i=0; i<photon.size();i++){
+            photon.get(i).Move();
+        }*/
+        photon.get(0).Move();
+        int radii;
+        int distanceA;
+        int distanceB;
+        distanceA = (((electron.get(0).getxPos()+10)-(photon.get(0).getxPos()+1)))^2;
+        distanceB = (((electron.get(0).getyPos()+10)-(photon.get(0).getyPos()+1)))^2;
+        radii = (((distanceA))+((distanceB)))^(1/2);
+        System.out.println(radii);
     }
     
     public static void main(String[] args) throws InterruptedException {
@@ -171,9 +167,8 @@ public class Simulation extends JPanel{
         p.add(DecIntensity,c);
         game.add(p);
         frame.add(game);
-        game.photon.add(new Photon());
         
-        for (int i=1;i<4;i++){
+        /*for (int i=0;i<7;i++){
             int electronX;
             int electronY;
             switch (i){
@@ -186,21 +181,57 @@ public class Simulation extends JPanel{
                     electronY=500;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 3:    
-                    electronX=300;
-                    electronY=330;
+                    electronX=270;
+                    electronY=345;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 4:
-                    break;
+                    electronX=519;
+                    electronY=372;
+                    game.electron.add(new Electron(electronX, electronY));break;
+                case 5:
+                    electronX=484;
+                    electronY=490;
+                    game.electron.add(new Electron(electronX, electronY));break;
+                case 6:
+                    electronX=278;
+                    electronY=402;
+                    game.electron.add(new Electron(electronX, electronY));break;
             }
             
         }
-        
-        
+        for (int i=0; i<5;i++){
+            int photonX;
+            int photonY;
+            switch (i){
+                case 0:
+                    photonX=30;
+                    photonY=50;
+                    game.photon.add(new Photon(photonX,photonY)); break;
+                case 1:
+                    photonX=246;
+                    photonY=252;
+                    game.photon.add(new Photon(photonX,photonY)); break;
+                case 2:
+                    photonX=134;
+                    photonY=70;
+                    game.photon.add(new Photon(photonX,photonY)); break;
+                case 3:
+                    photonX=40;
+                    photonY=164;
+                    game.photon.add(new Photon(photonX,photonY)); break;
+                case 4:
+                    photonX=281;
+                    photonY=134;
+                    game.photon.add(new Photon(photonX,photonY)); break;
+            }
+        }*/
+        game.photon.add(new Photon(30,50));
+        game.electron.add(new Electron(132, 356));
         while(true) { //game loop
                 while(pause!=true){
                     game.update();
                     game.repaint();
-                    Thread.sleep(20);
+                    Thread.sleep(50);
                 }
         }
     }
