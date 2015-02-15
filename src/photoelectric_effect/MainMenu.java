@@ -107,7 +107,8 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_simulationActionPerformed
 
     private void questionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionActionPerformed
-        // TODO add your handling code here:
+        QuestionAnswering hi = new QuestionAnswering();
+        hi.setVisible(true);
     }//GEN-LAST:event_questionActionPerformed
 
     /**

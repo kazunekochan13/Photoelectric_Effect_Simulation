@@ -18,7 +18,7 @@ public class Photon extends JPanel{
     int xv=1;
     int yv=3;
     int minx=0;
-    int miny=0;
+    int miny=40;
     int maxx=678;
     int maxy=557;
     
@@ -60,17 +60,6 @@ public class Photon extends JPanel{
         return absorb;
     }
     
-    public void Boundaries(){
-        if (x==maxx){
-            x=0;
-            y=0;
-        }
-        if (y==maxy){
-            y=0;
-            x=0;
-        }
-    }
-    
     public void Move(){
         if (absorb==false){
             if (x<minx) {
@@ -87,8 +76,8 @@ public class Photon extends JPanel{
             }
             x=x+xv;
             y=y+yv;
-    }
         }
+    }
         
     
 }

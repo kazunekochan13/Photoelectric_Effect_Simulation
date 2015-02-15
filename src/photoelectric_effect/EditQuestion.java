@@ -20,7 +20,7 @@ public class EditQuestion extends javax.swing.JFrame {
     ArrayList CA;
     ArrayList A;
     
-    public EditQuestion() throws IOException {
+    public EditQuestion() {
         initComponents();
         obtainData();
     }
