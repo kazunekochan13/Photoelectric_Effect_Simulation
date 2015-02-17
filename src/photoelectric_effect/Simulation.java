@@ -68,13 +68,20 @@ public class Simulation extends JPanel{
         }
         
         //Drawing Electron
-        g.setColor(Electron);
+        
         for (int i=0; i < electron.size();i++){
-            g.drawOval(electron.get(i).getxPos(),electron.get(i).getyPos(),20,20);
-            g.drawString("e-",electron.get(i).getxPos()+6,electron.get(i).getyPos()+14);
+            if (electron.get(i).getyPos()<=40){
+            }
+            else if(electron.get(i).getxPos()>=820){
+            }
+            else{
+                g.setColor(Electron);
+                g.drawOval(electron.get(i).getxPos(),electron.get(i).getyPos(),20,20);
+                g.drawString("e-",electron.get(i).getxPos()+6,electron.get(i).getyPos()+14);
+            }
         }
         
-        //position text
+        //side text
         paint.setColor(Color.WHITE);
         paint.drawString("Intensity: " + NoOfIntensity ,685,53);
         int b=80;//yPos of text 53
@@ -88,7 +95,7 @@ public class Simulation extends JPanel{
                 paint.drawString("PhotonXPos: " + photon.get(i).readX(),685,b);
             }
             b=b+19;
-            paint.drawString("Electron XPos: " + electron.get(i).readX(), 685, b); //change later
+            paint.drawString("Electron XPos: " + photon.get(i).readX(), 685, b);
         }
     }
    
@@ -122,7 +129,7 @@ public class Simulation extends JPanel{
         JFrame frame = new JFrame("Photoelectric Effect Simulator");
         frame.setSize(900,600);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //change to dispose later\
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //change to dispose later
         
         JPanel p = new JPanel(new GridBagLayout());
         JButton Play = new JButton("Play/Pause");
@@ -182,8 +189,11 @@ public class Simulation extends JPanel{
         });
         AddIntensity.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                game.NoOfIntensity = game.NoOfIntensity +1;
-                game.photon.add(new Photon(30,50));
+                if (game.NoOfIntensity<7){ //change to 10 later
+                    game.NoOfIntensity = game.NoOfIntensity +1;
+                    game.photon.add(new Photon(30,50));
+                }
+                
                 
             }
         });

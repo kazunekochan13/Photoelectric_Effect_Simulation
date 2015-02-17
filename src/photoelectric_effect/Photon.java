@@ -26,6 +26,7 @@ public class Photon extends JPanel{
     int PhoBlue=0;
     int PhoGreen=99;
     
+    double hf;
     Boolean absorb=false;
     
     public Photon(){
@@ -58,6 +59,10 @@ public class Photon extends JPanel{
     
     public Boolean getStatus(){
         return absorb;
+    }
+    
+    public void Energy(String metal){
+        
     }
     
     public void Move(){
