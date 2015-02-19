@@ -33,6 +33,7 @@ public class Simulation extends JPanel{
     int count=0;
     
     int NoOfIntensity=1;
+    int MetalNo=1;
     
     public Simulation(){
         
@@ -52,11 +53,11 @@ public class Simulation extends JPanel{
         
         //panel & metal surface/name
         paint.setColor(Panel);
-        paint.fillRect(680,40,900,600);
-        paint.drawLine(0, 320, 680, 320);
-        paint.drawLine(0,40,900, 40);
-        paint.setColor(Metal);
-        paint.fillRect(0, 321, 680, 280);
+        paint.fillRect(680,40,900,600); //right panel
+        paint.drawLine(0, 320, 680, 320); //metal outline
+        paint.drawLine(0,40,900, 40); //top panel
+        paint.setColor(Metal); //metal fill
+        paint.fillRect(0, 321, 680, 280); 
         
         //drawing photon
         g.setColor(Photon);
@@ -72,7 +73,7 @@ public class Simulation extends JPanel{
         for (int i=0; i < electron.size();i++){
             if (electron.get(i).getyPos()<=40){
             }
-            else if(electron.get(i).getxPos()>=820){
+            else if(electron.get(i).getxPos()+20>=678){
             }
             else{
                 g.setColor(Electron);
@@ -83,8 +84,11 @@ public class Simulation extends JPanel{
         
         //side text
         paint.setColor(Color.WHITE);
-        paint.drawString("Intensity: " + NoOfIntensity ,685,53);
-        int b=80;//yPos of text 53
+        paint.drawString("Metal: " + MetalNo,685,53);
+        paint.drawString("Work Function: ", 685,72);
+        paint.drawString("EM wave: " , 685, 91);
+        paint.drawString("Intensity: " + NoOfIntensity, 685, 110);
+        int b=137;//yPos of text 53
         for (int i=0; i < photon.size();i++){
             paint.setColor(Color.WHITE);
             if (i==0){
@@ -136,6 +140,9 @@ public class Simulation extends JPanel{
         JButton Restart = new JButton("Restart");
         JButton AddIntensity = new JButton("Add Intensity");
         JButton DecIntensity = new JButton("Decrease Intensity");
+        JButton Metal = new JButton("Metal");
+        JButton IncreaseFrequency = new JButton("Increase Freq");
+        JButton DecreaseFrequency = new JButton("Decrease Freq");
         GridBagConstraints c = new GridBagConstraints();
         int CountIntensity=1;
         
@@ -207,9 +214,29 @@ public class Simulation extends JPanel{
                 }
             }
         });
+        Metal.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (game.MetalNo<8){ 
+                    game.MetalNo = game.MetalNo +1;
+                }
+                else{
+                    game.MetalNo=1;
+                }
+            }
+        });
+        IncreaseFrequency.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
+        DecreaseFrequency.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
         
         //layout for buttons
-        c.insets = new Insets(3,3,3,3);
+        c.insets = new Insets(3,3,0,3);
         c.gridx=0;
         c.gridy=0;
         p.add(Play,c);
@@ -219,9 +246,18 @@ public class Simulation extends JPanel{
         c.gridx=2;
         c.gridy=0;
         p.add(AddIntensity,c);
+        c.gridx=2;
+        c.gridy=1;
+        p.add(DecIntensity,c);
         c.gridx=3;
         c.gridy=0;
-        p.add(DecIntensity,c);
+        p.add(Metal,c);
+        c.gridx=4;
+        c.gridy=0;
+        p.add(IncreaseFrequency,c);
+        c.gridx=4;
+        c.gridy=1;
+        p.add(DecreaseFrequency,c);
         game.add(p);
         frame.add(game);
         

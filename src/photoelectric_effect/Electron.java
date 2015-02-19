@@ -13,7 +13,7 @@ public class Electron{
     int xv=2;
     int yv=-2;
     int minx=0;
-    int miny=0;
+    int miny=40;
     int maxx=678;
     int maxy=557;
     

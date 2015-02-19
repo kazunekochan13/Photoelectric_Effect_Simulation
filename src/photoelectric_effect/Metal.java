@@ -1,10 +1,11 @@
 package photoelectric_effect;
 
+import java.lang.Math.*;
 
 public class Metal {
     
     float phiMeV;
-    double phiJoules;
+    float phiJoules;
     int HfMeV;
     int HfJoules;
     int Intensity;
@@ -16,8 +17,8 @@ public class Metal {
     public Metal(String metal){
         switch (metal){
                 case "Silver(Ag)":
-                    phiMeV  = 4.26f; // break used to avoid going through the rest of the switch statement if a match is found
-                    phiJoules = 6.816*(10^(-19));
+                    phiMeV  = 4.26f;
+                    phiJoules = 500;
                     DisplayM = String.format("%.3g%n", phiMeV); //rounds up number to 3sf
                     
                     break;
@@ -31,7 +32,7 @@ public class Metal {
                     DisplayM = String.format("%.3g%n", phiMeV);
                     
                     break;
-                case "Cesium(Cs)":
+                case "Caesium(Cs)":
                     phiMeV = 2.14f;
                     DisplayM = String.format("%.3g%n", phiMeV);
                     
