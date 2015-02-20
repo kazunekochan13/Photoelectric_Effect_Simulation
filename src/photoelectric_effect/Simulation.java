@@ -26,7 +26,6 @@ public class Simulation extends JPanel{
     int MetRed=160;
     int MetBlue=160;
     int MetGreen=160;
-    static Boolean pause=false;
     
     ArrayList<Electron> electron = new ArrayList<Electron>();
     ArrayList<Photon> photon = new ArrayList<Photon>();
@@ -34,7 +33,19 @@ public class Simulation extends JPanel{
     
     int NoOfIntensity=1;
     int MetalNo=1;
-    String[] EM={"Radiowaves, Microwaves,Infrared, Visible, UltraViolet, X-Rays, Gamma"};
+    double workFunction=4.26;
+    
+    static Boolean pause=false;
+    static Boolean clickRestart=false;
+    static String[] EM={"Radiowaves", "Microwaves","Infrared", "Visible", "UltraViolet", "X-Rays", "Gamma"};
+    static JComboBox JCBWaves = new JComboBox(EM);
+    static String[] WF={"Silver(Ag)", "Aluminium(Al)", "Gold(Au)", "Caesium(Cs)", "Copper(Cu)", "Lithium(Li)", "Lead(Pb)", "Tin(Sn)"};
+    static JComboBox JCBMetal = new JComboBox(WF);
+    static String[] UN={"MeV", "Joules"};
+    static JComboBox JCBUnits = new JComboBox(UN);
+    static String currentWave="UltraViolet";
+    static String currentMetal="Silver(Ag)";
+    static String Units="MeV";
     
     public Simulation(){
         
@@ -85,11 +96,15 @@ public class Simulation extends JPanel{
         
         //side text
         paint.setColor(Color.WHITE);
-        paint.drawString("Metal: " + MetalNo,685,53);
-        paint.drawString("Work Function: ", 685,72);
-        paint.drawString("EM wave: " , 685, 91);
+        paint.drawString("Metal: " + currentMetal,685,53);
+        paint.drawString("Work Function: " + workFunction + " " + Units, 685,72);
+        paint.drawString("EM wave: " + currentWave, 685, 91);
         paint.drawString("Intensity: " + NoOfIntensity, 685, 110);
-        int b=137;//yPos of text 53
+        if (clickRestart==true){
+            paint.setColor(Color.RED);
+            paint.drawString("Please click restart to see changes",685,129);
+        }
+        int b=156;//yPos of text 53
         for (int i=0; i < photon.size();i++){
             paint.setColor(Color.WHITE);
             if (i==0){
@@ -130,6 +145,7 @@ public class Simulation extends JPanel{
     
     public static void main(String[] args) throws InterruptedException {
         Simulation game = new Simulation();
+        Metal mt = new Metal();
         
         JFrame frame = new JFrame("Photoelectric Effect Simulator");
         frame.setSize(900,600);
@@ -141,10 +157,7 @@ public class Simulation extends JPanel{
         JButton Restart = new JButton("Restart");
         JButton AddIntensity = new JButton("Add Intensity");
         JButton DecIntensity = new JButton("Decrease Intensity");
-        JButton Metal = new JButton("Metal");
-        JButton IncreaseFrequency = new JButton("Increase Freq");
-        JButton DecreaseFrequency = new JButton("Decrease Freq");
-        //JComboBox Material = new JComboBox(game.EM); //*****************HELP HERE*********************
+        JButton Questions = new JButton("Questions");
         GridBagConstraints c = new GridBagConstraints();
         int CountIntensity=1;
         
@@ -194,6 +207,14 @@ public class Simulation extends JPanel{
                             game.electron.add(new Electron(electronX,electronY)); break;
                     } 
                 }
+                mt.assignWF(currentMetal);
+                if (Units=="J"){
+                    game.workFunction=mt.getJoules();
+                }
+                else if (Units=="MeV"){
+                    game.workFunction=mt.getMeV();
+                }
+                clickRestart=false;
             }
         });
         AddIntensity.addActionListener(new ActionListener(){
@@ -216,34 +237,41 @@ public class Simulation extends JPanel{
                 }
             }
         });
-        Metal.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                if (game.MetalNo<8){ 
-                    game.MetalNo = game.MetalNo +1;
-                }
-                else{
-                    game.MetalNo=1;
-                }
-            }
-        });
-        IncreaseFrequency.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                
-            }
-        });
-        DecreaseFrequency.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                
-            }
-        });
-        /*Material.addActionListener(new ActionListener(){ //*****************AND HERE*********************
+        JCBMetal.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
                         JComboBox combo = (JComboBox)e.getSource();
-                        String currentItem = (String) combo.getSelectedItem();
+                        currentMetal = (String) combo.getSelectedItem();
+                        clickRestart=true;
                         
             }
-        });*/
+        });
+        JCBWaves.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                        JComboBox combo = (JComboBox)e.getSource();
+                        currentWave = (String) combo.getSelectedItem();
+                        clickRestart=true;
+            }
+        });
+        JCBUnits.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                        JComboBox combo = (JComboBox)e.getSource();
+                        if ((String) combo.getSelectedItem()=="Joules"){
+                            Units="J";
+                        }
+                        else if ((String) combo.getSelectedItem()=="MeV"){
+                            Units="MeV";
+                        }
+                        clickRestart=true;
+            }
+        });
+        Questions.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                //opens the question answering form
+            }
+        });
         
         //layout for buttons
         c.insets = new Insets(3,3,0,3);
@@ -256,18 +284,21 @@ public class Simulation extends JPanel{
         c.gridx=2;
         c.gridy=0;
         p.add(AddIntensity,c);
-        c.gridx=2;
-        c.gridy=1;
-        p.add(DecIntensity,c);
         c.gridx=3;
         c.gridy=0;
-        p.add(Metal,c);
+        p.add(DecIntensity,c);
         c.gridx=4;
         c.gridy=0;
-        p.add(IncreaseFrequency,c);
-        c.gridx=4;
-        c.gridy=1;
-        p.add(DecreaseFrequency,c);
+        p.add(JCBMetal,c);
+        c.gridx=5;
+        c.gridy=0;
+        p.add(JCBWaves,c);
+        c.gridx=6;
+        c.gridy=0;
+        p.add(JCBUnits,c);
+        c.gridx=7;
+        c.gridy=0;
+        p.add(Questions,c);
         game.add(p);
         frame.add(game);
         
@@ -302,32 +333,6 @@ public class Simulation extends JPanel{
             } 
         }
         
-        /*for (int i=0; i<5;i++){
-            int photonX;
-            int photonY;
-            switch (i){
-                case 0:
-                    photonX=30;
-                    photonY=50;
-                    game.photon.add(new Photon(photonX,photonY)); break;
-                case 1:
-                    photonX=246;
-                    photonY=252;
-                    game.photon.add(new Photon(photonX,photonY)); break;
-                case 2:
-                    photonX=134;
-                    photonY=70;
-                    game.photon.add(new Photon(photonX,photonY)); break;
-                case 3:
-                    photonX=40;
-                    photonY=164;
-                    game.photon.add(new Photon(photonX,photonY)); break;
-                case 4:
-                    photonX=281;
-                    photonY=134;
-                    game.photon.add(new Photon(photonX,photonY)); break;
-            }
-        }*/
         game.photon.add(new Photon(30,50));
         game.electron.add(new Electron(132, 356));
         while(true) { //game loop

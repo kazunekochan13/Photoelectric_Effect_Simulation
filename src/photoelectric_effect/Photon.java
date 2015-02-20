@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import java.lang.Math;
 
 
-public class Photon extends JPanel{
+public class Photon{
     
     //attributes
     int x=50;
@@ -48,7 +48,7 @@ public class Photon extends JPanel{
         return y;
     }
     
-    public void assignHf(int emRegion){
+    public double getHf(int emRegion){
         switch (emRegion){
             case 1:
                 name="Radiowaves";
@@ -78,8 +78,8 @@ public class Photon extends JPanel{
                 name="Gamma rays";
                 joules=1.99E-14;
                 MeV=1.24E5; break;
-            
         }
+        return joules;
     }
     
     public String readX(){
