@@ -236,7 +236,7 @@ public class Simulation extends JPanel{
                 
             }
         });
-        /*Material.addActionListener(new ActionListener(){
+        /*Material.addActionListener(new ActionListener(){ //*****************AND HERE*********************
             @Override
             public void actionPerformed(ActionEvent e){
                         JComboBox combo = (JComboBox)e.getSource();
