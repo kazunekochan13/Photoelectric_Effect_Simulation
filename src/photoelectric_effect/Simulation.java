@@ -34,6 +34,7 @@ public class Simulation extends JPanel{
     
     int NoOfIntensity=1;
     int MetalNo=1;
+    String[] EM={"Radiowaves, Microwaves,Infrared, Visible, UltraViolet, X-Rays, Gamma"};
     
     public Simulation(){
         
@@ -143,6 +144,7 @@ public class Simulation extends JPanel{
         JButton Metal = new JButton("Metal");
         JButton IncreaseFrequency = new JButton("Increase Freq");
         JButton DecreaseFrequency = new JButton("Decrease Freq");
+        //JComboBox Material = new JComboBox(game.EM); //*****************HELP HERE*********************
         GridBagConstraints c = new GridBagConstraints();
         int CountIntensity=1;
         
@@ -234,6 +236,14 @@ public class Simulation extends JPanel{
                 
             }
         });
+        /*Material.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                        JComboBox combo = (JComboBox)e.getSource();
+                        String currentItem = (String) combo.getSelectedItem();
+                        
+            }
+        });*/
         
         //layout for buttons
         c.insets = new Insets(3,3,0,3);
