@@ -54,9 +54,12 @@ public class Electron{
         return release;
     }
     
-    public void calcEnergy(double hf, double wf){
+    public void calcEnergy(double hf, double wf, String wave){
         if (hf-wf >=0){
             energy=hf-wf;
+            if (wave=="Red" || wave=="Blue"){
+                energy = Double.parseDouble(String.format("%.3g%n", energy));
+            }
             changeStatus();
         }
     }

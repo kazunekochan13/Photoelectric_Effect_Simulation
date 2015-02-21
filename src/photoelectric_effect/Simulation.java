@@ -38,13 +38,13 @@ public class Simulation extends JPanel{
     
     static Boolean pause=false;
     static Boolean clickRestart=false;
-    static String[] EM={"Radiowaves", "Microwaves","Infrared", "Visible", "UltraViolet", "X-Rays", "Gamma"};
+    static String[] EM={"Radiowaves", "Microwaves","Infrared", "Red","Blue", "UltraViolet", "X-Rays", "Gamma"};
     static JComboBox JCBWaves = new JComboBox(EM);
     static String[] WF={"Silver(Ag)", "Aluminium(Al)", "Gold(Au)", "Caesium(Cs)", "Copper(Cu)", "Lithium(Li)", "Lead(Pb)", "Tin(Sn)"};
     static JComboBox JCBMetal = new JComboBox(WF);
     static String[] UN={"MeV", "Joules"};
     static JComboBox JCBUnits = new JComboBox(UN);
-    static String currentWave="UltraViolet";
+    static String currentWave="Radiowaves";
     static String currentMetal="Silver(Ag)";
     static String Units="MeV";
     
@@ -119,7 +119,7 @@ public class Simulation extends JPanel{
                 paint.drawString("PhotonXPos: " + photon.get(i).readX(),685,b);
             }
             b=b+19;
-            paint.drawString("Electron XPos: " + photon.get(i).readX(), 685, b);
+            paint.drawString("Electron XPos: " + photon.get(i).readY(), 685, b);
         }
     }
    
@@ -133,7 +133,7 @@ public class Simulation extends JPanel{
                 distanceB = (((electron.get(i).getyPos()+10)-(photon.get(j).getyPos()+3)))*(((electron.get(i).getyPos()+10)-(photon.get(j).getyPos()+1)));
                 radii = (int) Math.sqrt(((distanceA)+(distanceB)));
                 if (radii<=11 && electron.get(i).getStatus()==false){
-                    electron.get(i).calcEnergy(photon.get(j).getEnergy(Units), workFunction);
+                    electron.get(i).calcEnergy(photon.get(j).getEnergy(Units), workFunction, currentWave);
                     photon.get(j).changeStatus();
                 }
             }
@@ -202,15 +202,14 @@ public class Simulation extends JPanel{
                             game.photon.add(new Photon(photonX,photonY)); break;
                     }
                     game.photon.get(i).getHf(currentWave, Units);
-                    System.out.println(game.photon.get(i).getJoules());
                 }
-                for (int i=0;i<8;i++){
+                for (int i=0;i<9;i++){
                     int electronX;
                     int electronY;
                     switch (i){
                         case 1:
-                            electronX=100;
-                            electronY=370;
+                            electronX=246;
+                            electronY=416;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 2:
                             electronX=150;
@@ -228,14 +227,18 @@ public class Simulation extends JPanel{
                             electronX=484;
                             electronY=490;
                             game.electron.add(new Electron(electronX, electronY));break;
-                        case 6:
-                            electronX=278;
-                            electronY=402;
-                            game.electron.add(new Electron(electronX, electronY));break;
+                        //case 6:
+                            //electronX=278;
+                            //electronY=402;
+                            //game.electron.add(new Electron(electronX, electronY));break;
                         case 7:
                             electronX=132;
                             electronY=356;
                             game.electron.add(new Electron(electronX,electronY)); break;
+                        case 8:
+                            electronX=398;
+                            electronY=500;
+                            game.electron.add(new Electron(electronX, electronY));break;
                     } 
                 }
                 mt.assignWF(currentMetal);
@@ -279,7 +282,6 @@ public class Simulation extends JPanel{
                             game.photon.add(new Photon(photonX,photonY)); break;
                     }
                     game.photon.get(game.NoOfIntensity-1).getHf(currentWave, Units);
-                    System.out.println(game.photon.get(game.NoOfIntensity-1).getJoules());
                 }
                 
                 
@@ -360,13 +362,13 @@ public class Simulation extends JPanel{
         game.add(p);
         frame.add(game);
         
-        for (int i=0;i<7;i++){
+        for (int i=0;i<9;i++){
             int electronX;
             int electronY;
             switch (i){
                 case 1:
-                    electronX=100;
-                    electronY=370;
+                    electronX=246;
+                    electronY=416;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 2:
                     electronX=150;
@@ -384,15 +386,20 @@ public class Simulation extends JPanel{
                     electronX=484;
                     electronY=490;
                     game.electron.add(new Electron(electronX, electronY));break;
-                case 6:
-                    electronX=278;
-                    electronY=402;
+                //case 6:
+                    //electronX=278;
+                    //electronY=402;
+                    //game.electron.add(new Electron(electronX, electronY));break;
+                case 7:
+                    game.electron.add(new Electron(132, 356)); break;
+                case 8:
+                    electronX=398;
+                    electronY=500;
                     game.electron.add(new Electron(electronX, electronY));break;
             } 
         }
         
         game.photon.add(new Photon(30,50));
-        game.electron.add(new Electron(132, 356));
         while(true) { //game loop
                 while(pause!=true){
                     game.update();

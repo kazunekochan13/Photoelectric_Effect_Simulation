@@ -50,28 +50,40 @@ public class Photon{
     
     public void getHf(String emRegion, String Units){
         Random r = new Random();
-        switch (emRegion){
+        switch (emRegion){ //all photon energies are average of the range
             case "Radiowaves":
-                joules=r.nextDouble()*1.99E-22;
-                MeV=r.nextDouble()*1.24E-5; break;
+                joules=1.99E-24;
+                MeV=1.24E-5; break;
             case "Microwaves":
-                joules=(r.nextDouble()*((1.99E-22)-(1.99E-24)))+1.99E-24;
-                MeV=(r.nextDouble()*((1.24E-3)-(1.24E-5)))+1.24E-5; break;
+                joules=1.00E-22;
+                MeV=6.28E-1; break;
             case "Infrared":
-                joules=(r.nextDouble()*((2.84E-19)-(1.99E-22)))+1.99E-22;
-                MeV=(r.nextDouble()*((1.78)-(1.24E-3)))+1.24E-3; break;
-            case "Visible":
-                joules=(r.nextDouble()*((4.9E-19)-(2.84E-19)))+2.84E-19;
-                MeV=(r.nextDouble()*((3.11)-(1.78)))+1.78; break;
+                joules=1.42E-19;
+                MeV=8.89E-1; break;
+            case "Red":
+                joules=2.93E-19;
+                MeV=1.83;
+                MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
+            //case "Visible":
+                //joules=3.91E-19;
+                //MeV=2.44;
+                //MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
+            case "Blue":
+                joules=4.22E-19;
+                MeV=2.64;
+                MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
             case "UltraViolet":
-                joules=(r.nextDouble()*((1.99E-17)-(4.97E-19)))+4.97E-19;
-                MeV=(r.nextDouble()*((1.24E2)-(3.11)))+3.11; break;
+                joules=1.02E-17;
+                MeV=6.37E1;
+                MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
             case "X-Rays":
-                joules=(r.nextDouble()*((1.99E-14)-(1.99E-17)))+1.99E-17;
-                MeV=(r.nextDouble()*((1.24E5)-(1.24E2)))+1.24E2; break;
+                joules=9.95E-15;
+                MeV=6.22E4;
+                MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
             case "Gamma":
-                joules=(r.nextDouble()*((1.99E-11)-(1.99E-14)))+1.99E-14;
-                MeV=(r.nextDouble()*((1.24E7)-(1.24E5)))+1.24E5; break;
+                joules=1.99E-14;
+                MeV=1.24E5;
+                MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
         }
     }
     
