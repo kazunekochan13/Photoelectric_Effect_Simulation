@@ -17,6 +17,8 @@ public class Electron{
     int maxx=678;
     int maxy=557;
     
+    double energy;
+    
     Boolean release = false;
     
     public Electron(){
@@ -52,11 +54,20 @@ public class Electron{
         return release;
     }
     
+    public void calcEnergy(double hf, double wf){
+        if (hf-wf >=0){
+            energy=hf-wf;
+            changeStatus();
+        }
+    }
+    
+    public double getEnergy(){
+        return energy;
+    }
+    
     public void Update(){
-        if (release==true){
             x=x+xv;
             y=y+yv;
-        }
     }
     
 }

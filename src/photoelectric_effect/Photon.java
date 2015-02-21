@@ -6,8 +6,9 @@
 package photoelectric_effect;
 
 import java.awt.*;
-import javax.swing.JPanel;
 import java.lang.Math;
+import java.util.Random;
+import javax.swing.JPanel;
 
 
 public class Photon{
@@ -26,9 +27,8 @@ public class Photon{
     int PhoBlue=0;
     int PhoGreen=99;
     
-    String name;
-    double joules; //only used the average of the energy range in both joules and MeV
-    double MeV;
+    double joules=1.99E-22; //only used the average of the energy range in both joules and MeV
+    double MeV=1.24E-5;
     Boolean absorb=false;
     
     public Photon(){
@@ -48,38 +48,48 @@ public class Photon{
         return y;
     }
     
-    public double getHf(int emRegion){
+    public void getHf(String emRegion, String Units){
+        Random r = new Random();
         switch (emRegion){
-            case 1:
-                name="Radiowaves";
-                joules=1.99E-24;
-                MeV=1.24E-5; break;
-            case 2:
-                name="Microwaves";
-                joules=1.00E-22;
-                MeV=6.28E-4; break;
-            case 3:
-                name="Infrared radiation";
-                joules=1.42E-19;
-                MeV=8.89E-1; break;
-            case 4:
-                name="Visible light";
-                joules=3.91E-19;
-                MeV=2.44; break;
-            case 5:
-                name="UltraViolet";
-                joules=1.02E-17;
-                MeV=6.37E1; break;
-            case 6:
-                name="X-Rays";
-                joules=9.95E-15;
-                MeV=6.22E4; break;
-            case 7:
-                name="Gamma rays";
-                joules=1.99E-14;
-                MeV=1.24E5; break;
+            case "Radiowaves":
+                joules=r.nextDouble()*1.99E-22;
+                MeV=r.nextDouble()*1.24E-5; break;
+            case "Microwaves":
+                joules=(r.nextDouble()*((1.99E-22)-(1.99E-24)))+1.99E-24;
+                MeV=(r.nextDouble()*((1.24E-3)-(1.24E-5)))+1.24E-5; break;
+            case "Infrared":
+                joules=(r.nextDouble()*((2.84E-19)-(1.99E-22)))+1.99E-22;
+                MeV=(r.nextDouble()*((1.78)-(1.24E-3)))+1.24E-3; break;
+            case "Visible":
+                joules=(r.nextDouble()*((4.9E-19)-(2.84E-19)))+2.84E-19;
+                MeV=(r.nextDouble()*((3.11)-(1.78)))+1.78; break;
+            case "UltraViolet":
+                joules=(r.nextDouble()*((1.99E-17)-(4.97E-19)))+4.97E-19;
+                MeV=(r.nextDouble()*((1.24E2)-(3.11)))+3.11; break;
+            case "X-Rays":
+                joules=(r.nextDouble()*((1.99E-14)-(1.99E-17)))+1.99E-17;
+                MeV=(r.nextDouble()*((1.24E5)-(1.24E2)))+1.24E2; break;
+            case "Gamma":
+                joules=(r.nextDouble()*((1.99E-11)-(1.99E-14)))+1.99E-14;
+                MeV=(r.nextDouble()*((1.24E7)-(1.24E5)))+1.24E5; break;
         }
+    }
+    
+    public double getEnergy(String units){
+        if (units=="J"){
+            return joules;
+        }
+        else{
+            return MeV;
+        }
+    }
+    
+    public double getJoules(){
         return joules;
+    }
+    
+    public double getMeV(){
+        return MeV;
     }
     
     public String readX(){
