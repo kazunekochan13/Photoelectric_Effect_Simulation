@@ -55,6 +55,20 @@ public class Electron{
     }
     
     public void calcEnergy(double hf, double wf, String wave){
+        if (y<376){
+        }
+        else if (y<432){
+            wf=wf*1.05; //added 1% of original workfunction
+        }
+        else if(y<488){
+            wf=wf*1.10;
+        }
+        else if(y<544){
+            wf=wf*1.15;
+        }
+        else if(y<600){
+            wf=wf*1.20;
+        }
         if (hf-wf >=0){
             energy=hf-wf;
             if (wave=="Red" || wave=="Blue"){
