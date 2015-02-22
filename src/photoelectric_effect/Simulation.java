@@ -122,9 +122,6 @@ public class Simulation extends JPanel{
             paint.drawString("Photon XPos: " + photon.get(i).readY(), 685, b);
         }
         
-        //test position
-        paint.setColor(Color.ORANGE);
-        paint.drawOval(b, b, 3, 3);
     }
    
     public void update(){
@@ -237,7 +234,7 @@ public class Simulation extends JPanel{
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 6:
                             electronX=70;
-                            electronY=450;
+                            electronY=400;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 7:
                             electronX=132;
@@ -383,8 +380,8 @@ public class Simulation extends JPanel{
                     electronY=416;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 2:
-                    electronX=157;
-                    electronY=527;
+                    electronX=144;
+                    electronY=482;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 3:    
                     electronX=270;
@@ -403,7 +400,9 @@ public class Simulation extends JPanel{
                     electronY=450;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 7:
-                    game.electron.add(new Electron(132, 356)); break;
+                    electronX=132;
+                    electronY=356;
+                    game.electron.add(new Electron(electronX,electronY)); break;
                 case 8:
                     electronX=398;
                     electronY=500;
