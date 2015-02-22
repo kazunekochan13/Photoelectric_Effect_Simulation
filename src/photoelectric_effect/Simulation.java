@@ -212,8 +212,8 @@ public class Simulation extends JPanel{
                             electronY=416;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 2:
-                            electronX=150;
-                            electronY=500;
+                            electronX=144;
+                            electronY=482;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 3:    
                             electronX=270;
@@ -371,8 +371,8 @@ public class Simulation extends JPanel{
                     electronY=416;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 2:
-                    electronX=150;
-                    electronY=500;
+                    electronX=157;
+                    electronY=527;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 3:    
                     electronX=270;
