@@ -55,19 +55,19 @@ public class Electron{
     }
     
     public void calcEnergy(double hf, double wf, String wave){
-        if (y<376){
+        if (y<376){ //adds a percentages of the work function to show range of kinetic energies
         }
         else if (y<432){
-            wf=wf*1.05; //added 1% of original workfunction
+            wf=wf*1.05; //added 5% of original workfunction
         }
         else if(y<488){
-            wf=wf*1.10;
+            wf=wf*1.10; //added 10% of original workfunction
         }
         else if(y<544){
-            wf=wf*1.15;
+            wf=wf*1.15; //added 15% of original workfunction
         }
         else if(y<600){
-            wf=wf*1.20;
+            wf=wf*1.20; //added 20% of original workfunction
         }
         if (hf-wf >=0){
             energy=hf-wf;
