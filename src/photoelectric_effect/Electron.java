@@ -5,6 +5,9 @@
 
 package photoelectric_effect;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class Electron{
     
     //attributes
@@ -71,9 +74,8 @@ public class Electron{
         }
         if (hf-wf >=0){
             energy=hf-wf;
-            if (wave=="Red" || wave=="Blue"){
-                energy = Double.parseDouble(String.format("%.3g%n", energy));
-            }
+            NumberFormat df = new DecimalFormat("#0.00");
+            energy = Double.parseDouble(df.format(energy));
             changeStatus();
         }
     }

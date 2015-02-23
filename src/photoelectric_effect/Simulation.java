@@ -77,7 +77,7 @@ public class Simulation extends JPanel{
         for (int i=0; i< photon.size();i++){
             if (photon.get(i).getStatus()==false){
                 g.drawOval(photon.get(i).getxPos(),photon.get(i).getyPos(),3,3);
-                g.drawString(i + ") " + "hf:" + photon.get(i).getEnergy(Units),photon.get(i).getxPos()+3,photon.get(i).getyPos());
+                g.drawString(" "+i ,photon.get(i).getxPos()+3,photon.get(i).getyPos());
             }
         }
         
@@ -95,6 +95,9 @@ public class Simulation extends JPanel{
                 if (electron.get(i).getStatus()==true){
                     g.drawString(i + ") " + Double.toString(electron.get(i).getEnergy()),electron.get(i).getxPos()+6,electron.get(i).getyPos());
                 }
+                else{
+                    g.drawString(i + ")", electron.get(i).getxPos()+6,electron.get(i).getyPos());
+                }
             }
         }
         
@@ -106,9 +109,9 @@ public class Simulation extends JPanel{
         paint.drawString("Intensity: " + NoOfIntensity, 685, 110);
         if (clickRestart==true){
             paint.setColor(Color.RED);
-            paint.drawString("Please click restart to see changes",685,129);
+            paint.drawString("Please click restart to see changes",685,123);
         }
-        int b=156;//yPos of text 53
+        /*int b=156;//yPos of text 53
         for (int i=0; i < photon.size();i++){
             paint.setColor(Color.WHITE);
             if (i==0){
@@ -121,7 +124,21 @@ public class Simulation extends JPanel{
             b=b+19;
             paint.drawString("Photon XPos: " + photon.get(i).readY(), 685, b);
         }
-        
+        */
+        int b=136;
+        paint.setColor(Color.WHITE);
+        paint.drawString("Photon Energy: " + photon.get(0).getEnergy(Units) + " " + Units, 685, b);
+        b=b+19;
+        for (int i=0;i < electron.size();i++){
+            paint.setColor(Color.WHITE);
+            if (i==0){
+                paint.drawString("Electron 1: " + electron.get(i).getEnergy() + " " + Units,685,b);
+            }
+            else{
+                b=b+19;
+                paint.drawString("Electron " + (i+1) + ": " + electron.get(i).getEnergy() + " " + Units,685,b);
+            }
+        }
     }
    
     public void update(){
@@ -213,6 +230,22 @@ public class Simulation extends JPanel{
                             photonX=395;
                             photonY=200;
                             game.photon.add(new Photon(photonX,photonY)); break;
+                        case 8:
+                            photonX=290;
+                            photonY=55;
+                            game.photon.add(new Photon(photonX,photonY)); break;
+                        case 9:
+                            photonX=222;
+                            photonY=122;
+                            game.photon.add(new Photon(photonX,photonY)); break;
+                        case 10:
+                            photonX=390;
+                            photonY=63;
+                            game.photon.add(new Photon(photonX,photonY)); break;
+                        case 11:
+                            photonX=152;
+                            photonY=145;
+                            game.photon.add(new Photon(photonX,photonY)); break;
                     }
                     game.photon.get(i).getHf(currentWave, Units);
                 }
@@ -221,36 +254,36 @@ public class Simulation extends JPanel{
                     int electronY;
                     switch (i){
                         case 1:
-                            electronX=246;
-                            electronY=416;
+                            electronX=132;
+                            electronY=356;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 2:
-                            electronX=144;
-                            electronY=482;
-                            game.electron.add(new Electron(electronX, electronY));break;
-                        case 3:    
                             electronX=270;
                             electronY=345;
                             game.electron.add(new Electron(electronX, electronY));break;
+                        case 3:    
+                            electronX=246;
+                            electronY=416;
+                            game.electron.add(new Electron(electronX, electronY));break;
                         case 4:
-                            electronX=519;
-                            electronY=372;
+                            electronX=144;
+                            electronY=482;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 5:
-                            electronX=484;
-                            electronY=490;
+                            electronX=398;
+                            electronY=500;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 6:
                             electronX=70;
                             electronY=400;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 7:
-                            electronX=132;
-                            electronY=356;
+                            electronX=519;
+                            electronY=372;
                             game.electron.add(new Electron(electronX,electronY));break;
                         case 8:
-                            electronX=398;
-                            electronY=500;
+                            electronX=484;
+                            electronY=490;
                             game.electron.add(new Electron(electronX, electronY));break;
                         case 9:
                             electronX=400;
@@ -283,7 +316,7 @@ public class Simulation extends JPanel{
         });
         AddIntensity.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (game.NoOfIntensity<8){ //change to 10 later
+                if (game.NoOfIntensity<12){ //change to 10 later
                     game.NoOfIntensity = game.NoOfIntensity +1;
                     
                     int photonX;
@@ -320,6 +353,22 @@ public class Simulation extends JPanel{
                         case 7:
                             photonX=395;
                             photonY=200;
+                            game.photon.add(new Photon(photonX,photonY)); break;
+                        case 8:
+                            photonX=290;
+                            photonY=55;
+                            game.photon.add(new Photon(photonX,photonY)); break;
+                        case 9:
+                            photonX=222;
+                            photonY=122;
+                            game.photon.add(new Photon(photonX,photonY)); break;
+                        case 10:
+                            photonX=390;
+                            photonY=63;
+                            game.photon.add(new Photon(photonX,photonY)); break;
+                        case 11:
+                            photonX=152;
+                            photonY=145;
                             game.photon.add(new Photon(photonX,photonY)); break;
                     }
                     game.photon.get(game.NoOfIntensity-1).getHf(currentWave, Units);
@@ -417,36 +466,36 @@ public class Simulation extends JPanel{
             int electronY;
             switch (i){
                 case 1:
-                    electronX=246;
-                    electronY=416;
+                    electronX=132;
+                    electronY=356;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 2:
-                    electronX=144;
-                    electronY=482;
-                    game.electron.add(new Electron(electronX, electronY));break;
-                case 3:    
                     electronX=270;
                     electronY=345;
                     game.electron.add(new Electron(electronX, electronY));break;
+                case 3:    
+                    electronX=246;
+                    electronY=416;
+                    game.electron.add(new Electron(electronX, electronY));break;
                 case 4:
-                    electronX=519;
-                    electronY=372;
+                    electronX=144;
+                    electronY=482;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 5:
-                    electronX=484;
-                    electronY=490;
+                    electronX=398;
+                    electronY=500;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 6:
                     electronX=70;
                     electronY=450;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 7:
-                    electronX=132;
-                    electronY=356;
+                    electronX=519;
+                    electronY=372;
                     game.electron.add(new Electron(electronX,electronY)); break;
                 case 8:
-                    electronX=398;
-                    electronY=500;
+                    electronX=484;
+                    electronY=490;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 9:
                     electronX=400;
