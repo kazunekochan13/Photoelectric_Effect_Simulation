@@ -57,7 +57,7 @@ public class Electron{
         return release;
     }
     
-    public void calcEnergy(double hf, double wf, String wave){
+    public void calcEnergy(double hf, double wf, String units){
         if (y<376){ //adds a percentages of the work function to show range of kinetic energies
         }
         else if (y<432){
@@ -74,8 +74,15 @@ public class Electron{
         }
         if (hf-wf >=0){
             energy=hf-wf;
-            NumberFormat df = new DecimalFormat("#0.00");
-            energy = Double.parseDouble(df.format(energy));
+            if (units=="MeV"){
+                NumberFormat df = new DecimalFormat("###000.00");
+                energy = Double.parseDouble(df.format(energy));
+            }
+            else if (units=="J"){
+                DecimalFormat df = new DecimalFormat("0.000E0");
+                energy = Double.parseDouble(df.format(energy));
+            }
+            
             changeStatus();
         }
     }

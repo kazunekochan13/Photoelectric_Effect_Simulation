@@ -15,9 +15,9 @@ public class Simulation extends JPanel{
     int EGreen=0;
     int EBlue=184;
     
-    int PanRed=82;
-    int PanGreen=82;
-    int PanBlue=82;
+    int PanRed=7;
+    int PanGreen=54;
+    int PanBlue=66;
     
     int PhoRed=199;
     int PhoBlue=0;
@@ -26,6 +26,10 @@ public class Simulation extends JPanel{
     int MetRed=160;
     int MetBlue=160;
     int MetGreen=160;
+    
+    int txtRed=238;
+    int txtGreen=232;
+    int txtBlue=213;
     
     ArrayList<Electron> electron = new ArrayList<Electron>();
     ArrayList<Photon> photon = new ArrayList<Photon>();
@@ -40,7 +44,7 @@ public class Simulation extends JPanel{
     static Boolean clickRestart=false;
     static String[] EM={"Radiowaves", "Microwaves","Infrared", "Red","Blue", "UltraViolet", "X-Rays", "Gamma"};
     static JComboBox JCBWaves = new JComboBox(EM);
-    static String[] WF={"Silver(Ag)", "Aluminium(Al)", "Gold(Au)", "Caesium(Cs)", "Copper(Cu)", "Lithium(Li)", "Lead(Pb)", "Tin(Sn)"};
+    static String[] WF={"Silver(Ag)", "Aluminium(Al)", "Gold(Au)", "Caesium(Cs)", "Copper(Cu)", "Lithium(Li)", "Lead(Pb)", "Tin(Sn)","Iridium(Ir)", "Yttrium(Y)","Zinc(Zn)","Nickel(Ni)","Cobalt(Co)"};
     static JComboBox JCBMetal = new JComboBox(WF);
     static String[] UN={"MeV", "Joules"};
     static JComboBox JCBUnits = new JComboBox(UN);
@@ -63,6 +67,7 @@ public class Simulation extends JPanel{
         Color Panel = new Color(PanRed,PanGreen,PanBlue);
         Color Photon = new Color(PhoRed,PhoBlue,PhoGreen);
         Color Metal = new Color(MetRed, MetBlue, MetGreen);
+        Color Text = new Color(txtRed,txtGreen,txtBlue);
         
         //panel & metal surface/name
         paint.setColor(Panel);
@@ -102,7 +107,7 @@ public class Simulation extends JPanel{
         }
         
         //side text
-        paint.setColor(Color.WHITE);
+        paint.setColor(Text);
         paint.drawString("Metal: " + currentMetal,685,53);
         paint.drawString("Work Function: " + workFunction + " " + Units, 685,72);
         paint.drawString("EM wave: " + currentWave, 685, 91);
@@ -126,16 +131,16 @@ public class Simulation extends JPanel{
         }
         */
         int b=136;
-        paint.setColor(Color.WHITE);
+        paint.setColor(Text);
         paint.drawString("Photon Energy: " + photon.get(0).getEnergy(Units) + " " + Units, 685, b);
-        b=b+19;
+        b=b+20;
         for (int i=0;i < electron.size();i++){
-            paint.setColor(Color.WHITE);
+            paint.setColor(Text);
             if (i==0){
                 paint.drawString("Electron 1: " + electron.get(i).getEnergy() + " " + Units,685,b);
             }
             else{
-                b=b+19;
+                b=b+20;
                 paint.drawString("Electron " + (i+1) + ": " + electron.get(i).getEnergy() + " " + Units,685,b);
             }
         }
@@ -151,7 +156,7 @@ public class Simulation extends JPanel{
                 distanceB = (((electron.get(i).getyPos()+10)-(photon.get(j).getyPos()+3)))*(((electron.get(i).getyPos()+10)-(photon.get(j).getyPos()+1)));
                 radii = (int) Math.sqrt(((distanceA)+(distanceB)));
                 if (radii<=11 && electron.get(i).getStatus()==false){
-                    electron.get(i).calcEnergy(photon.get(j).getEnergy(Units), workFunction, currentWave);
+                    electron.get(i).calcEnergy(photon.get(j).getEnergy(Units), workFunction, Units);
                     photon.get(j).changeStatus();
                 }
             }
@@ -312,6 +317,7 @@ public class Simulation extends JPanel{
                 }
                 
                 clickRestart=false;
+                pause=false;
             }
         });
         AddIntensity.addActionListener(new ActionListener(){
