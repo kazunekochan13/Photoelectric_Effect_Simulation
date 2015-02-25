@@ -11,15 +11,14 @@ import java.util.ArrayList;
 
 public class ReadFiles {
     
-    private final String pathQ = "C:/Users/Owner/Documents/NetBeansProjects/ZombieTest/dist/Questions.txt";
-    private final String pathCA = "C:/Users/Owner/Documents/NetBeansProjects/ZombieTest/dist/CorrectAnswer.txt";
-    private final String pathA = "C:/Users/Owner/Documents/NetBeansProjects/ZombieTest/dist/Answers.txt";
-    private final String pathWFN = "C:/Users/Owner/Documents/NetBeansProjects/ZombieTest/dist/WFName.txt";
-    private final String pathWFS = "C:/Users/Owner/Documents/NetBeansProjects/ZombieTest/dist/WFSymbol.txt";
-    private final String pathWFV = "C:/Users/Owner/Documents/NetBeansProjects/ZombieTest/dist/WFValue.txt";
+    private final String pathQ;
+    private final String pathCA;
+    private final String pathA;
     
-    public ReadFiles(){
-        
+    public ReadFiles(String Q, String CA, String A){
+        pathQ=Q;
+        pathCA=CA;
+        pathA=A;
     }
   
     int FindLine(String findPath) throws IOException{
@@ -74,46 +73,6 @@ public class ReadFiles {
         }
         br.close();
         return dummyAnswers;
-    }
-    
-    public ArrayList ReturnWFName() throws IOException{
-        FileReader fr = new FileReader(pathWFN);
-        BufferedReader br = new BufferedReader(fr);
-        
-        ArrayList name = new ArrayList();
-        
-        for (int i=0; i < FindLine(pathWFN); i++){
-            name.add(br.readLine());
-        }
-        br.close();
-        
-        return name;
-    }
-    
-    public ArrayList ReturnWFSymbol() throws IOException{
-        FileReader fr2 = new FileReader(pathWFS);
-        BufferedReader br2 = new BufferedReader(fr2);
-        
-        ArrayList symbol = new ArrayList();
-        
-        for (int i=0; i<FindLine(pathWFS); i++){
-            symbol.add(br2.readLine());
-        }
-        br2.close();
-        return symbol;
-    }
-    
-    public ArrayList ReturnWFValue() throws IOException{
-        FileReader fr3 = new FileReader(pathWFV);
-        BufferedReader br3 = new BufferedReader(fr3);
-        
-        ArrayList value = new ArrayList();
-        
-        for (int i=0; i<FindLine(pathWFV); i++){
-            value.add(br3.readLine());
-        }
-        br3.close();
-        return value; 
     }
     
 }

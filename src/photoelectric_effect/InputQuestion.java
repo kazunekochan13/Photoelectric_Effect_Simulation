@@ -6,16 +6,19 @@
 
 package photoelectric_effect;
 
-/**
- *
- * @author Owner
- */
-public class InputQuestion extends javax.swing.JFrame {
+import java.util.ArrayList;
+import javax.swing.JFrame;
 
+public class InputQuestion extends JFrame{
+    
+    int count=0; //starts with question zero
+    QuestionSection QS = new QuestionSection();
+    ArrayList Q;
+    ArrayList CA;
+    ArrayList A;
     
     public InputQuestion() {
         initComponents();
-        ReadFiles rf = new ReadFiles();
     }
     
 
@@ -28,48 +31,40 @@ public class InputQuestion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        finishBtn = new javax.swing.JButton();
-        inputBtn1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblQuestion = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        question = new javax.swing.JTextArea();
+        txtAreaQuestion = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         correctAnswer = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        answer2 = new javax.swing.JTextField();
+        dummy1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        answer3 = new javax.swing.JTextField();
+        dummy2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        answer4 = new javax.swing.JTextField();
+        dummy3 = new javax.swing.JTextField();
         settingsBtn = new javax.swing.JButton();
         helpBtn = new javax.swing.JButton();
         CloseWindowBtn = new javax.swing.JButton();
+        nextQuestionBtn = new javax.swing.JButton();
+        saveCurrentQuestionBtn = new javax.swing.JButton();
+        previousQuestionBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Question Input Form");
 
-        finishBtn.setText("Finish");
-        finishBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finishBtnActionPerformed(evt);
-            }
-        });
-
-        inputBtn1.setText("Input");
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Question input form");
+        jLabel1.setText("Question input/Edit form");
 
-        jLabel2.setText("Enter Question:");
+        lblQuestion.setText("Question 1:");
 
-        question.setColumns(20);
-        question.setRows(5);
-        question.setText("First Question");
-        jScrollPane1.setViewportView(question);
+        txtAreaQuestion.setColumns(20);
+        txtAreaQuestion.setRows(5);
+        txtAreaQuestion.setText("First Question");
+        jScrollPane1.setViewportView(txtAreaQuestion);
 
-        jLabel3.setText("Enter the correct answer for the question above:");
+        jLabel3.setText("Correct answer for the question above:");
 
         correctAnswer.setText("Correct Answer");
         correctAnswer.addActionListener(new java.awt.event.ActionListener() {
@@ -78,30 +73,30 @@ public class InputQuestion extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Enter second dummy answer:");
+        jLabel4.setText("Dummy answer number 1:");
 
-        answer2.setText("dummy1");
-        answer2.addActionListener(new java.awt.event.ActionListener() {
+        dummy1.setText("dummy1");
+        dummy1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answer2ActionPerformed(evt);
+                dummy1ActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Enter third dummy answer:");
+        jLabel5.setText("Dummy answer number 2:");
 
-        answer3.setText("dummy2");
-        answer3.addActionListener(new java.awt.event.ActionListener() {
+        dummy2.setText("dummy2");
+        dummy2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answer3ActionPerformed(evt);
+                dummy2ActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Enter fourth dummy answer:");
+        jLabel6.setText("Dummy answer number 3:");
 
-        answer4.setText("dummy3");
-        answer4.addActionListener(new java.awt.event.ActionListener() {
+        dummy3.setText("dummy3");
+        dummy3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                answer4ActionPerformed(evt);
+                dummy3ActionPerformed(evt);
             }
         });
 
@@ -112,26 +107,26 @@ public class InputQuestion extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(answer4)
-                    .addComponent(answer2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(dummy3)
+                    .addComponent(dummy1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(correctAnswer, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1)
-                    .addComponent(answer3)
+                    .addComponent(dummy2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addGap(0, 271, Short.MAX_VALUE)))
+                        .addGap(0, 317, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(lblQuestion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -141,15 +136,15 @@ public class InputQuestion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(answer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dummy1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(answer3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dummy2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(answer4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dummy3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -161,6 +156,27 @@ public class InputQuestion extends javax.swing.JFrame {
         CloseWindowBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CloseWindowBtnActionPerformed(evt);
+            }
+        });
+
+        nextQuestionBtn.setText("Next");
+        nextQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextQuestionBtnActionPerformed(evt);
+            }
+        });
+
+        saveCurrentQuestionBtn.setText("Save Question");
+        saveCurrentQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveCurrentQuestionBtnActionPerformed(evt);
+            }
+        });
+
+        previousQuestionBtn.setText("Previous");
+        previousQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previousQuestionBtnActionPerformed(evt);
             }
         });
 
@@ -176,9 +192,12 @@ public class InputQuestion extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(CloseWindowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(finishBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(previousQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inputBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(saveCurrentQuestionBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nextQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -200,9 +219,11 @@ public class InputQuestion extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(finishBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CloseWindowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CloseWindowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nextQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(saveCurrentQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(previousQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -213,25 +234,48 @@ public class InputQuestion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_correctAnswerActionPerformed
 
-    private void finishBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishBtnActionPerformed
+    private void dummy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dummy1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_finishBtnActionPerformed
+    }//GEN-LAST:event_dummy1ActionPerformed
 
-    private void answer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer2ActionPerformed
+    private void dummy2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dummy2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_answer2ActionPerformed
+    }//GEN-LAST:event_dummy2ActionPerformed
 
-    private void answer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer3ActionPerformed
+    private void dummy3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dummy3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_answer3ActionPerformed
-
-    private void answer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answer4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_answer4ActionPerformed
+    }//GEN-LAST:event_dummy3ActionPerformed
 
     private void CloseWindowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseWindowBtnActionPerformed
         this.dispose();
     }//GEN-LAST:event_CloseWindowBtnActionPerformed
+
+    private void nextQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionBtnActionPerformed
+        Q=QS.returnQuestions();
+        if(count<0 || count> Q.size()+1){
+        }
+        else{
+            count++;
+        }
+        lblQuestion.setText("Question " + (count+1) + ":");
+        txtAreaQuestion.setText((String)Q.get(count));
+        
+    }//GEN-LAST:event_nextQuestionBtnActionPerformed
+
+    private void saveCurrentQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCurrentQuestionBtnActionPerformed
+        
+    }//GEN-LAST:event_saveCurrentQuestionBtnActionPerformed
+
+    private void previousQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousQuestionBtnActionPerformed
+        Q=QS.returnQuestions();
+        if (count==0){
+        }
+        else{
+            count--;
+        }
+        lblQuestion.setText("Question " + (count+1) + ":");
+        txtAreaQuestion.setText((String)Q.get(count));
+    }//GEN-LAST:event_previousQuestionBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,22 +314,23 @@ public class InputQuestion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseWindowBtn;
-    private javax.swing.JTextField answer2;
-    private javax.swing.JTextField answer3;
-    private javax.swing.JTextField answer4;
     private javax.swing.JTextField correctAnswer;
-    private javax.swing.JButton finishBtn;
+    private javax.swing.JTextField dummy1;
+    private javax.swing.JTextField dummy2;
+    private javax.swing.JTextField dummy3;
     private javax.swing.JButton helpBtn;
-    private javax.swing.JButton inputBtn1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea question;
+    private javax.swing.JLabel lblQuestion;
+    private javax.swing.JButton nextQuestionBtn;
+    private javax.swing.JButton previousQuestionBtn;
+    private javax.swing.JButton saveCurrentQuestionBtn;
     private javax.swing.JButton settingsBtn;
+    private javax.swing.JTextArea txtAreaQuestion;
     // End of variables declaration//GEN-END:variables
 }

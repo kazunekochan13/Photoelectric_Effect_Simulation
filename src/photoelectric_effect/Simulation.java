@@ -114,7 +114,7 @@ public class Simulation extends JPanel{
         paint.drawString("Intensity: " + NoOfIntensity, 685, 110);
         if (clickRestart==true){
             paint.setColor(Color.RED);
-            paint.drawString("Please click restart to see changes",685,123);
+            paint.drawString("Please click restart to see changes",685,133);
         }
         /*int b=156;//yPos of text 53
         for (int i=0; i < photon.size();i++){
@@ -130,17 +130,17 @@ public class Simulation extends JPanel{
             paint.drawString("Photon XPos: " + photon.get(i).readY(), 685, b);
         }
         */
-        int b=136;
+        int b=156;
         paint.setColor(Text);
         paint.drawString("Photon Energy: " + photon.get(0).getEnergy(Units) + " " + Units, 685, b);
-        b=b+20;
+        b=b+25;
         for (int i=0;i < electron.size();i++){
             paint.setColor(Text);
             if (i==0){
                 paint.drawString("Electron 1: " + electron.get(i).getEnergy() + " " + Units,685,b);
             }
             else{
-                b=b+20;
+                b=b+25;
                 paint.drawString("Electron " + (i+1) + ": " + electron.get(i).getEnergy() + " " + Units,685,b);
             }
         }

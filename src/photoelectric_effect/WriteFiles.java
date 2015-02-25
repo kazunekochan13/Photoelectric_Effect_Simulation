@@ -51,7 +51,7 @@ public class WriteFiles {
         
     }
     
-    public void AppendFiles(String question, String corAnswer, ArrayList answers) throws IOException{ //add new 
+    /*public void AppendFiles(String question, String corAnswer, ArrayList answers) throws IOException{ //add new 
         
         FileWriter fw1 = new FileWriter(pathQ, true);
         PrintWriter pw1 = new PrintWriter(fw1);
@@ -72,6 +72,5 @@ public class WriteFiles {
             pw3.printf("%s" + "%n" + answers.get(i));
         }
         pw3.close();
-    }
-    
+    }*/
 }
