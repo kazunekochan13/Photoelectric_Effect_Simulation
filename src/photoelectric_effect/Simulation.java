@@ -82,7 +82,6 @@ public class Simulation extends JPanel{
         for (int i=0; i< photon.size();i++){
             if (photon.get(i).getStatus()==false){
                 g.drawOval(photon.get(i).getxPos(),photon.get(i).getyPos(),3,3);
-                g.drawString(" "+i ,photon.get(i).getxPos()+3,photon.get(i).getyPos());
             }
         }
         
@@ -97,11 +96,12 @@ public class Simulation extends JPanel{
                 g.setColor(Electron);
                 g.drawOval(electron.get(i).getxPos(),electron.get(i).getyPos(),20,20);
                 g.drawString("e-",electron.get(i).getxPos()+6,electron.get(i).getyPos()+14);
+                g.setColor(Panel);
                 if (electron.get(i).getStatus()==true){
-                    g.drawString(i + ") " + Double.toString(electron.get(i).getEnergy()),electron.get(i).getxPos()+6,electron.get(i).getyPos());
+                    g.drawString(i + ") " + Double.toString(electron.get(i).getEnergy()),electron.get(i).getxPos()+6,electron.get(i).getyPos()-5);
                 }
                 else{
-                    g.drawString(i + ")", electron.get(i).getxPos()+6,electron.get(i).getyPos());
+                    g.drawString((i+1) + ")", electron.get(i).getxPos()+6,electron.get(i).getyPos()-5);
                 }
             }
         }
@@ -492,9 +492,9 @@ public class Simulation extends JPanel{
                     electronY=500;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 6:
-                    electronX=70;
-                    electronY=450;
-                    game.electron.add(new Electron(electronX, electronY));break;
+                            electronX=70;
+                            electronY=400;
+                            game.electron.add(new Electron(electronX, electronY));break;
                 case 7:
                     electronX=519;
                     electronY=372;
