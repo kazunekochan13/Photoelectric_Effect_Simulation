@@ -27,8 +27,8 @@ public class QuestionSection {
     private void ReadAgain(){
         try{
         QuesList = rf.ReadQues();
-        CorAns = rf.ReadCA();
-        Ans = rf.ReadA();
+        //CorAns = rf.ReadCA();
+        //Ans = rf.ReadA();
         }
         catch (IOException ioe){
         }
