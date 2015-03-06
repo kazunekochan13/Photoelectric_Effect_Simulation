@@ -10,20 +10,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.ButtonGroup;
-
-/**
- *
- * @author Owner
- */
 public class QuestionAnswering extends javax.swing.JFrame {
 
     int count=0; //starts with question zero
     int dcount=0;
     QuestionSection QS = new QuestionSection();
-    ArrayList Q;
+    ArrayList<String> Q = new ArrayList<>();
     ArrayList CA;
     ArrayList A;
-    ArrayList formAnswers;
+    ArrayList<String> formAnswers = new ArrayList<>();
+    
     public QuestionAnswering() {
         initComponents();
         groupButton();
@@ -221,15 +217,17 @@ public class QuestionAnswering extends javax.swing.JFrame {
             lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             //Random rand = new Random();
-            
-            formAnswers.add(CA.get(count)); //**********************************here seems to be the problem***************//
+            if (formAnswers!=null){
+                formAnswers.clear();
+            }
+            formAnswers.add((String)CA.get(count));
             for (int i=0; i<3;i++){
-                formAnswers.add(A.get(dcount));
+                formAnswers.add((String)A.get(dcount));
                 dcount=dcount+1;
             }
             answer1.setText((String)formAnswers.get(0));
             answer2.setText((String)formAnswers.get(1));
-            answer3.setText((String) formAnswers.get(2));
+            answer3.setText((String)formAnswers.get(2));
             answer4.setText((String)formAnswers.get(3));
         }
     }//GEN-LAST:event_btnNextActionPerformed
@@ -242,6 +240,18 @@ public class QuestionAnswering extends javax.swing.JFrame {
             count--;
             lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
+            if (formAnswers!=null){
+                formAnswers.clear();
+            }
+            formAnswers.add((String)CA.get(count));
+            for (int i=0; i<3;i++){
+                formAnswers.add((String)A.get(dcount));
+                dcount=dcount+1;
+            }
+            answer1.setText((String)formAnswers.get(0));
+            answer2.setText((String)formAnswers.get(1));
+            answer3.setText((String)formAnswers.get(2));
+            answer4.setText((String)formAnswers.get(3));
         }
     }//GEN-LAST:event_btnPreviousActionPerformed
 
