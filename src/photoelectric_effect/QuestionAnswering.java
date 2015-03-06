@@ -222,7 +222,7 @@ public class QuestionAnswering extends javax.swing.JFrame {
             txtAreaQuestion.setText((String)Q.get(count));
             //Random rand = new Random();
             
-            formAnswers.add(CA.get(count));
+            formAnswers.add(CA.get(count)); //**********************************here seems to be the problem***************//
             for (int i=0; i<3;i++){
                 formAnswers.add(A.get(dcount));
                 dcount=dcount+1;
