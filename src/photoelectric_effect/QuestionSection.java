@@ -12,7 +12,7 @@ public class QuestionSection {
     private final String pathQ = "C:\\Users\\Owner\\Documents\\NetBeansProjects\\ZombieTest\\src\\photoelectric_effect\\Resources\\Questions.txt";
     private final String pathCA = "C:\\Users\\Owner\\Documents\\NetBeansProjects\\ZombieTest\\src\\photoelectric_effect\\Resources\\CorrectAnswers.txt";
     private final String pathA = "C:\\Users\\Owner\\Documents\\NetBeansProjects\\ZombieTest\\src\\photoelectric_effect\\Resources\\Answers.txt";
-    ReadFiles rf = new ReadFiles(pathQ,pathA,pathA);
+    ReadFiles rf = new ReadFiles(pathQ,pathCA,pathA);
     WriteFiles wf = new WriteFiles(pathQ, pathCA, pathA);
     ArrayList QuesList;
     ArrayList CorAns;

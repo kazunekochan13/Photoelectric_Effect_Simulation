@@ -13,11 +13,11 @@ import javax.swing.ButtonGroup;
 public class QuestionAnswering extends javax.swing.JFrame {
 
     int count=0; //starts with question zero
-    int dcount=0;
+    int dcount=3;
     QuestionSection QS = new QuestionSection();
     ArrayList<String> Q = new ArrayList<>();
-    ArrayList CA;
-    ArrayList A;
+    ArrayList<String> CA = new ArrayList<>();
+    ArrayList<String> A = new ArrayList<>();
     ArrayList<String> formAnswers = new ArrayList<>();
     
     public QuestionAnswering() {
@@ -207,16 +207,14 @@ public class QuestionAnswering extends javax.swing.JFrame {
     }//GEN-LAST:event_settingsBtnActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        
         Q=QS.returnQuestions();
         CA=QS.returnCorAnswers();
         A=QS.returnAnswers();
-        if (count< Q.size()-1){
+        if (count< Q.size()){
             count++;
-            //setting question on form
+            //setting question and answers on form
             lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
-            //Random rand = new Random();
             if (formAnswers!=null){
                 formAnswers.clear();
             }
@@ -225,29 +223,38 @@ public class QuestionAnswering extends javax.swing.JFrame {
                 formAnswers.add((String)A.get(dcount));
                 dcount=dcount+1;
             }
+            //Random rand = new Random();
             answer1.setText((String)formAnswers.get(0));
             answer2.setText((String)formAnswers.get(1));
             answer3.setText((String)formAnswers.get(2));
             answer4.setText((String)formAnswers.get(3));
+            
+            
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnPreviousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousActionPerformed
         Q=QS.returnQuestions();
+        CA=QS.returnCorAnswers();
+        A=QS.returnAnswers();
         if (count==0){
         }
         else{
             count--;
+            //setting question and answers on form
             lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             if (formAnswers!=null){
                 formAnswers.clear();
             }
+            //************problem here**********//
+            dcount=dcount-3;
             formAnswers.add((String)CA.get(count));
-            for (int i=0; i<3;i++){
+            for (int i=2; i<0;i--){
                 formAnswers.add((String)A.get(dcount));
-                dcount=dcount+1;
+                dcount=dcount-1;
             }
+            //Random rand = new Random();
             answer1.setText((String)formAnswers.get(0));
             answer2.setText((String)formAnswers.get(1));
             answer3.setText((String)formAnswers.get(2));
