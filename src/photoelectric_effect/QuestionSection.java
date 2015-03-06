@@ -27,8 +27,8 @@ public class QuestionSection {
     private void ReadAgain(){
         try{
         QuesList = rf.ReadQues();
-        //CorAns = rf.ReadCA();
-        //Ans = rf.ReadA();
+        CorAns = rf.ReadCA();
+        Ans = rf.ReadA();
         }
         catch (IOException ioe){
         }
@@ -48,4 +48,11 @@ public class QuestionSection {
         return QuesList;
     }
     
+    public ArrayList returnAnswers(){
+        return Ans;
+    }
+    
+    public ArrayList returnCorAnswers(){
+        return CorAns;
+    }
 }

@@ -82,7 +82,7 @@ public class Simulation extends JPanel{
         for (int i=0; i< photon.size();i++){
             if (photon.get(i).getStatus()==false){
                 g.drawOval(photon.get(i).getxPos(),photon.get(i).getyPos(),3,3);
-                g.drawString(" "+i ,photon.get(i).getxPos()+3,photon.get(i).getyPos());
+                g.drawString(" "+(i+1) ,photon.get(i).getxPos()+3,photon.get(i).getyPos());
             }
         }
         
@@ -98,10 +98,10 @@ public class Simulation extends JPanel{
                 g.drawOval(electron.get(i).getxPos(),electron.get(i).getyPos(),20,20);
                 g.drawString("e-",electron.get(i).getxPos()+6,electron.get(i).getyPos()+14);
                 if (electron.get(i).getStatus()==true){
-                    g.drawString(i + ") " + Double.toString(electron.get(i).getEnergy()),electron.get(i).getxPos()+6,electron.get(i).getyPos());
+                    g.drawString((i+1) + ") " + Double.toString(electron.get(i).getEnergy()),electron.get(i).getxPos()+6,electron.get(i).getyPos());
                 }
                 else{
-                    g.drawString(i + ")", electron.get(i).getxPos()+6,electron.get(i).getyPos());
+                    g.drawString((i+1) + ")", electron.get(i).getxPos()+6,electron.get(i).getyPos());
                 }
             }
         }
@@ -425,7 +425,9 @@ public class Simulation extends JPanel{
         });
         Questions.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                //opens the question answering form
+                QuestionAnswering QAForm = new QuestionAnswering();
+                QAForm.setVisible(true);
+                pause=true;
             }
         });
         

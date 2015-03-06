@@ -218,12 +218,12 @@ public class InputQuestion extends JFrame{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CloseWindowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(nextQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(saveCurrentQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(previousQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(previousQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CloseWindowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -252,13 +252,12 @@ public class InputQuestion extends JFrame{
 
     private void nextQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionBtnActionPerformed
         Q=QS.returnQuestions();
-        if(count<0 || count> Q.size()+1){
-        }
-        else{
+        
+        if (count< Q.size()-1){
             count++;
+            lblQuestion.setText("Question " + (count+1) + ":");
+            txtAreaQuestion.setText((String)Q.get(count));
         }
-        lblQuestion.setText("Question " + (count+1) + ":");
-        txtAreaQuestion.setText((String)Q.get(count));
         
     }//GEN-LAST:event_nextQuestionBtnActionPerformed
 
@@ -272,9 +271,10 @@ public class InputQuestion extends JFrame{
         }
         else{
             count--;
+            lblQuestion.setText("Question " + (count+1) + ":");
+            txtAreaQuestion.setText((String)Q.get(count));
         }
-        lblQuestion.setText("Question " + (count+1) + ":");
-        txtAreaQuestion.setText((String)Q.get(count));
+        
     }//GEN-LAST:event_previousQuestionBtnActionPerformed
 
     /**
