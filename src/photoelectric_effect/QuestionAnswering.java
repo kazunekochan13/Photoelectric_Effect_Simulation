@@ -223,6 +223,7 @@ public class QuestionAnswering extends javax.swing.JFrame {
                 formAnswers.add((String)A.get(dcount));
                 dcount=dcount+1;
             }
+            //************add random selector here**********//
             //Random rand = new Random();
             answer1.setText((String)formAnswers.get(0));
             answer2.setText((String)formAnswers.get(1));
@@ -241,21 +242,18 @@ public class QuestionAnswering extends javax.swing.JFrame {
         }
         else{
             count--;
-            //setting question and answers on form
             lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             if (formAnswers!=null){
                 formAnswers.clear();
             }
-            //************problem here**********//
             dcount=dcount-6;
             formAnswers.add((String)CA.get(count));
             for (int i=0; i<3;i++){
                 formAnswers.add((String)A.get(dcount));
                 dcount=dcount+1;
             }
-            System.out.println(dcount);
-            //Random rand = new Random();
+            //************add random selector here**********//
             answer1.setText((String)formAnswers.get(0));
             answer2.setText((String)formAnswers.get(1));
             answer3.setText((String)formAnswers.get(2));

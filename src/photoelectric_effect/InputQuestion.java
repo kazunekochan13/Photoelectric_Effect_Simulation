@@ -12,10 +12,12 @@ import javax.swing.JFrame;
 public class InputQuestion extends JFrame{
     
     int count=0; //starts with question zero
+    int dcount=3;
     QuestionSection QS = new QuestionSection();
-    ArrayList Q;
-    ArrayList CA;
-    ArrayList A;
+    ArrayList<String> Q = new ArrayList<>();
+    ArrayList<String> CA = new ArrayList<>();
+    ArrayList<String> A = new ArrayList<>();
+    ArrayList<String> formAnswers = new ArrayList<>();
     
     public InputQuestion() {
         initComponents();
@@ -252,13 +254,26 @@ public class InputQuestion extends JFrame{
 
     private void nextQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionBtnActionPerformed
         Q=QS.returnQuestions();
-        
+        CA=QS.returnCorAnswers();
+        A=QS.returnAnswers();
         if (count< Q.size()-1){
             count++;
-            lblQuestion.setText("Question " + (count+1) + ":");
+            //setting question and answers on form
+            lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
+            if (formAnswers!=null){
+                formAnswers.clear();
+            }
+            formAnswers.add((String)CA.get(count));
+            for (int i=0; i<3;i++){
+                formAnswers.add((String)A.get(dcount));
+                dcount=dcount+1;
+            }
+            correctAnswer.setText((String)formAnswers.get(0));
+            dummy1.setText((String)formAnswers.get(1));
+            dummy2.setText((String)formAnswers.get(2));
+            dummy3.setText((String)formAnswers.get(3));
         }
-        
     }//GEN-LAST:event_nextQuestionBtnActionPerformed
 
     private void saveCurrentQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCurrentQuestionBtnActionPerformed
@@ -267,12 +282,28 @@ public class InputQuestion extends JFrame{
 
     private void previousQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousQuestionBtnActionPerformed
         Q=QS.returnQuestions();
+        CA=QS.returnCorAnswers();
+        A=QS.returnAnswers();
         if (count==0){
         }
         else{
             count--;
-            lblQuestion.setText("Question " + (count+1) + ":");
+            //setting question and answers on form
+            lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
+            if (formAnswers!=null){
+                formAnswers.clear();
+            }
+            dcount=dcount-6;
+            formAnswers.add((String)CA.get(count));
+            for (int i=0; i<3;i++){
+                formAnswers.add((String)A.get(dcount));
+                dcount=dcount+1;
+            }
+            correctAnswer.setText((String)formAnswers.get(0));
+            dummy1.setText((String)formAnswers.get(1));
+            dummy2.setText((String)formAnswers.get(2));
+            dummy3.setText((String)formAnswers.get(3));
         }
         
     }//GEN-LAST:event_previousQuestionBtnActionPerformed
