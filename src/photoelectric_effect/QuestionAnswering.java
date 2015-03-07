@@ -210,7 +210,7 @@ public class QuestionAnswering extends javax.swing.JFrame {
         Q=QS.returnQuestions();
         CA=QS.returnCorAnswers();
         A=QS.returnAnswers();
-        if (count< Q.size()){
+        if (count< Q.size()-1){
             count++;
             //setting question and answers on form
             lblQuestion.setText((count+1) + ".");
@@ -248,12 +248,13 @@ public class QuestionAnswering extends javax.swing.JFrame {
                 formAnswers.clear();
             }
             //************problem here**********//
-            dcount=dcount-3;
+            dcount=dcount-6;
             formAnswers.add((String)CA.get(count));
-            for (int i=2; i<0;i--){
+            for (int i=0; i<3;i++){
                 formAnswers.add((String)A.get(dcount));
-                dcount=dcount-1;
+                dcount=dcount+1;
             }
+            System.out.println(dcount);
             //Random rand = new Random();
             answer1.setText((String)formAnswers.get(0));
             answer2.setText((String)formAnswers.get(1));

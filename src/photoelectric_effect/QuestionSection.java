@@ -47,10 +47,12 @@ public class QuestionSection {
     }
     
     public ArrayList returnAnswers(){
+        ReadAgain();
         return Ans;
     }
     
     public ArrayList returnCorAnswers(){
+        ReadAgain();
         return CorAns;
     }
 }
