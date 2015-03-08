@@ -223,14 +223,21 @@ public class QuestionAnswering extends javax.swing.JFrame {
                 formAnswers.add((String)A.get(dcount));
                 dcount=dcount+1;
             }
-            //************add random selector here**********//
-            //Random rand = new Random();
-            answer1.setText((String)formAnswers.get(0));
-            answer2.setText((String)formAnswers.get(1));
-            answer3.setText((String)formAnswers.get(2));
-            answer4.setText((String)formAnswers.get(3));
-            
-            
+            for (int i=0;formAnswers.isEmpty()!=true;i++){//random answer selector
+                Random rand = new Random();
+                int RNum =rand.nextInt(formAnswers.size());
+                switch(i){
+                    case 0:
+                        answer1.setText(formAnswers.get(RNum)); break;
+                    case 1:
+                        answer2.setText(formAnswers.get(RNum)); break;
+                    case 2:
+                        answer3.setText(formAnswers.get(RNum)); break;
+                    case 3:
+                        answer4.setText(formAnswers.get(RNum)); break;
+                }
+                formAnswers.remove(RNum);
+            }
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -253,11 +260,21 @@ public class QuestionAnswering extends javax.swing.JFrame {
                 formAnswers.add((String)A.get(dcount));
                 dcount=dcount+1;
             }
-            //************add random selector here**********//
-            answer1.setText((String)formAnswers.get(0));
-            answer2.setText((String)formAnswers.get(1));
-            answer3.setText((String)formAnswers.get(2));
-            answer4.setText((String)formAnswers.get(3));
+            for (int i=0;formAnswers.isEmpty()!=true;i++){ //random answer selector
+                Random rand = new Random();
+                int RNum =rand.nextInt(formAnswers.size());
+                switch(i){
+                    case 0:
+                        answer1.setText(formAnswers.get(RNum)); break;
+                    case 1:
+                        answer2.setText(formAnswers.get(RNum)); break;
+                    case 2:
+                        answer3.setText(formAnswers.get(RNum)); break;
+                    case 3:
+                        answer4.setText(formAnswers.get(RNum)); break;
+                }
+                formAnswers.remove(RNum);
+            }
         }
     }//GEN-LAST:event_btnPreviousActionPerformed
 

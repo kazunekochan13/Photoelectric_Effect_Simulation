@@ -256,23 +256,29 @@ public class InputQuestion extends JFrame{
         Q=QS.returnQuestions();
         CA=QS.returnCorAnswers();
         A=QS.returnAnswers();
-        if (count< Q.size()-1){
+        if (count< Q.size()){
             count++;
-            //setting question and answers on form
-            lblQuestion.setText((count+1) + ".");
-            txtAreaQuestion.setText((String)Q.get(count));
-            if (formAnswers!=null){
-                formAnswers.clear();
+            if (count==Q.size()){
+                //append question
+                lblQuestion.setText((count+1) + ".");
+                txtAreaQuestion.setText("Enter new question here");
+                correctAnswer.setText("Enter correct answer");
+                dummy1.setText("Enter dummy answer 1");
+                dummy2.setText("Enter dummy answer 2");
+                dummy3.setText("Enter dummy answer 3");
             }
-            formAnswers.add((String)CA.get(count));
-            for (int i=0; i<3;i++){
-                formAnswers.add((String)A.get(dcount));
+            else{
+                //setting question and answers on form
+                lblQuestion.setText((count+1) + ".");
+                txtAreaQuestion.setText((String)Q.get(count));
+                correctAnswer.setText((String)(String)CA.get(count));
+                dummy1.setText((String)(String)A.get(dcount));
+                dcount=dcount+1;
+                dummy2.setText((String)(String)A.get(dcount));
+                dcount=dcount+1;
+                dummy3.setText((String)(String)A.get(dcount));
                 dcount=dcount+1;
             }
-            correctAnswer.setText((String)formAnswers.get(0));
-            dummy1.setText((String)formAnswers.get(1));
-            dummy2.setText((String)formAnswers.get(2));
-            dummy3.setText((String)formAnswers.get(3));
         }
     }//GEN-LAST:event_nextQuestionBtnActionPerformed
 
@@ -284,26 +290,33 @@ public class InputQuestion extends JFrame{
         Q=QS.returnQuestions();
         CA=QS.returnCorAnswers();
         A=QS.returnAnswers();
-        if (count==0){
+        if (count<=0){
+        }
+        else if (count==Q.size()){
+            count--;
+            lblQuestion.setText((count+1) + ".");
+            txtAreaQuestion.setText((String)Q.get(count));
+            correctAnswer.setText((String)(String)CA.get(count));
+            dcount=dcount-3;
+            dummy1.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy2.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy3.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
         }
         else{
             count--;
-            //setting question and answers on form
             lblQuestion.setText((count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
-            if (formAnswers!=null){
-                formAnswers.clear();
-            }
+            correctAnswer.setText((String)(String)CA.get(count));
             dcount=dcount-6;
-            formAnswers.add((String)CA.get(count));
-            for (int i=0; i<3;i++){
-                formAnswers.add((String)A.get(dcount));
-                dcount=dcount+1;
-            }
-            correctAnswer.setText((String)formAnswers.get(0));
-            dummy1.setText((String)formAnswers.get(1));
-            dummy2.setText((String)formAnswers.get(2));
-            dummy3.setText((String)formAnswers.get(3));
+            dummy1.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy2.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy3.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
         }
         
     }//GEN-LAST:event_previousQuestionBtnActionPerformed
