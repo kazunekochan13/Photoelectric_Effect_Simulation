@@ -25,13 +25,11 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="1" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
               <Component id="btnPrevious" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="ShowWorkings" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnCheck" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnNext" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -91,7 +89,6 @@
                   <Component id="btnPrevious" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btnCheck" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btnNext" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="ShowWorkings" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -150,7 +147,7 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="answer3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="This is answer number 3"/>
+        <Property name="text" type="java.lang.String" value="First Answer"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="answer4">
@@ -200,6 +197,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Help"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="helpBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblQuestion">
       <Properties>
@@ -207,11 +207,6 @@
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="1."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="ShowWorkings">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Show Workings"/>
       </Properties>
     </Component>
   </SubComponents>

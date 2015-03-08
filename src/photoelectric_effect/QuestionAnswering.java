@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 public class QuestionAnswering extends javax.swing.JFrame {
 
     int count=0; //starts with question zero
@@ -55,7 +56,6 @@ public class QuestionAnswering extends javax.swing.JFrame {
         settingsBtn = new javax.swing.JButton();
         helpBtn = new javax.swing.JButton();
         lblQuestion = new javax.swing.JLabel();
-        ShowWorkings = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Questions section");
@@ -84,7 +84,7 @@ public class QuestionAnswering extends javax.swing.JFrame {
 
         answer2.setText("This is answer number 2");
 
-        answer3.setText("This is answer number 3");
+        answer3.setText("First Answer");
 
         answer4.setText("This is answer number 4");
 
@@ -119,24 +119,25 @@ public class QuestionAnswering extends javax.swing.JFrame {
         });
 
         helpBtn.setText("Help");
+        helpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpBtnActionPerformed(evt);
+            }
+        });
 
         lblQuestion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblQuestion.setText("1.");
-
-        ShowWorkings.setText("Show Workings");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(140, 140, 140)
                 .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ShowWorkings)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCheck)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnNext)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -185,8 +186,7 @@ public class QuestionAnswering extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ShowWorkings, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -198,13 +198,42 @@ public class QuestionAnswering extends javax.swing.JFrame {
     }//GEN-LAST:event_answer1ActionPerformed
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
-        
+        CA=QS.returnCorAnswers();
+        if (answer1.isSelected() || answer2.isSelected() || answer3.isSelected() || answer4.isSelected()){
+            if (count==0){
+                if (answer3.isSelected()){
+                    JOptionPane.showMessageDialog(rootPane, "Correct!");
+                }
+                else{
+                    JOptionPane.showMessageDialog(rootPane, "Incorrect!");
+                }
+            }
+            else{
+                String selectedtxt=null;
+                if(answer1.isSelected()){
+                    selectedtxt = (String)answer1.getText();
+                }
+                if(answer2.isSelected()){
+                    selectedtxt = (String)answer2.getText();
+                }
+                if(answer3.isSelected()){
+                    selectedtxt = (String)answer3.getText();
+                }
+                if(answer4.isSelected()){
+                    selectedtxt = (String)answer4.getText();
+                }
+                if (selectedtxt.equals((String)CA.get(count))){
+                    JOptionPane.showMessageDialog(rootPane, "Correct!");
+                }
+                else{
+                    JOptionPane.showMessageDialog(rootPane, "Incorrect!");
+                }
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "Please choose an answer");
+        }
     }//GEN-LAST:event_btnCheckActionPerformed
-
-    private void settingsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsBtnActionPerformed
-        SettingsLogInForm SetForm = new SettingsLogInForm();
-        SetForm.setVisible(true);
-    }//GEN-LAST:event_settingsBtnActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         Q=QS.returnQuestions();
@@ -260,7 +289,18 @@ public class QuestionAnswering extends javax.swing.JFrame {
                 formAnswers.add((String)A.get(dcount));
                 dcount=dcount+1;
             }
-            for (int i=0;formAnswers.isEmpty()!=true;i++){ //random answer selector
+            if (count==0){
+                dcount=dcount-3;
+                answer1.setText((String)(String)A.get(dcount));
+                dcount=dcount+1;
+                answer2.setText((String)(String)A.get(dcount));
+                dcount=dcount+1;
+                answer3.setText((String)(String)CA.get(count));
+                answer4.setText((String)(String)A.get(dcount));
+                dcount=dcount+1;
+            }
+            else{
+                for (int i=0;formAnswers.isEmpty()!=true;i++){ //random answer selector
                 Random rand = new Random();
                 int RNum =rand.nextInt(formAnswers.size());
                 switch(i){
@@ -274,9 +314,20 @@ public class QuestionAnswering extends javax.swing.JFrame {
                         answer4.setText(formAnswers.get(RNum)); break;
                 }
                 formAnswers.remove(RNum);
+                }
             }
         }
     }//GEN-LAST:event_btnPreviousActionPerformed
+
+    private void helpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpBtnActionPerformed
+        HelpForm help = new HelpForm();
+        help.setVisible(true);
+    }//GEN-LAST:event_helpBtnActionPerformed
+
+    private void settingsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsBtnActionPerformed
+        SettingsLogInForm SetForm = new SettingsLogInForm();
+        SetForm.setVisible(true);
+    }//GEN-LAST:event_settingsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,7 +365,6 @@ public class QuestionAnswering extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ShowWorkings;
     private javax.swing.JRadioButton answer1;
     private javax.swing.JRadioButton answer2;
     private javax.swing.JRadioButton answer3;
