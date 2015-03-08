@@ -52,6 +52,8 @@ public class InputQuestion extends JFrame{
         nextQuestionBtn = new javax.swing.JButton();
         saveCurrentQuestionBtn = new javax.swing.JButton();
         previousQuestionBtn = new javax.swing.JButton();
+        lastQuestionBtn = new javax.swing.JButton();
+        firstQuestionBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Question Input Form");
@@ -182,6 +184,20 @@ public class InputQuestion extends JFrame{
             }
         });
 
+        lastQuestionBtn.setText("Last");
+        lastQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastQuestionBtnActionPerformed(evt);
+            }
+        });
+
+        firstQuestionBtn.setText("First");
+        firstQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstQuestionBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -190,22 +206,26 @@ public class InputQuestion extends JFrame{
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(CloseWindowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CloseWindowBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(settingsBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(helpBtn))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(firstQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(previousQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveCurrentQuestionBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nextQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(settingsBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(helpBtn)))
+                        .addComponent(lastQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -216,17 +236,18 @@ public class InputQuestion extends JFrame{
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(settingsBtn)
-                        .addComponent(helpBtn)))
+                        .addComponent(helpBtn)
+                        .addComponent(CloseWindowBtn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nextQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(saveCurrentQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(previousQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CloseWindowBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveCurrentQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(previousQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lastQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -321,6 +342,40 @@ public class InputQuestion extends JFrame{
         
     }//GEN-LAST:event_previousQuestionBtnActionPerformed
 
+    private void lastQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastQuestionBtnActionPerformed
+        Q=QS.returnQuestions();
+        CA=QS.returnCorAnswers();
+        A=QS.returnAnswers();
+        count=Q.size()-1;
+        dcount=(Q.size()*3)-3;
+        lblQuestion.setText((Q.size()+1) + ".");
+            txtAreaQuestion.setText((String)Q.get(count));
+            correctAnswer.setText((String)(String)CA.get(count));
+            dummy1.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy2.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy3.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+    }//GEN-LAST:event_lastQuestionBtnActionPerformed
+
+    private void firstQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstQuestionBtnActionPerformed
+        Q=QS.returnQuestions();
+        CA=QS.returnCorAnswers();
+        A=QS.returnAnswers();
+        count=0;
+        dcount=0;
+        lblQuestion.setText(1 + ".");
+            txtAreaQuestion.setText((String)Q.get(count));
+            correctAnswer.setText((String)(String)CA.get(count));
+            dummy1.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy2.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+            dummy3.setText((String)(String)A.get(dcount));
+            dcount=dcount+1;
+    }//GEN-LAST:event_firstQuestionBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -362,6 +417,7 @@ public class InputQuestion extends JFrame{
     private javax.swing.JTextField dummy1;
     private javax.swing.JTextField dummy2;
     private javax.swing.JTextField dummy3;
+    private javax.swing.JButton firstQuestionBtn;
     private javax.swing.JButton helpBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -370,6 +426,7 @@ public class InputQuestion extends JFrame{
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton lastQuestionBtn;
     private javax.swing.JLabel lblQuestion;
     private javax.swing.JButton nextQuestionBtn;
     private javax.swing.JButton previousQuestionBtn;
