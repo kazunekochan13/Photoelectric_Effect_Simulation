@@ -168,6 +168,7 @@ public class SettingsLogInForm extends javax.swing.JFrame {
         if (Arrays.toString(passField.getPassword()).equals(Arrays.toString(secure))){
             InputQuestion IQ = new InputQuestion();
             IQ.setVisible(true);
+            this.dispose();
         }
         else{
             incorrectTxt.setText("Incorrect password. Please enter password again.");

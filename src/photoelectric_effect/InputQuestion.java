@@ -348,7 +348,7 @@ public class InputQuestion extends JFrame{
         A=QS.returnAnswers();
         count=Q.size()-1;
         dcount=(Q.size()*3)-3;
-        lblQuestion.setText((Q.size()+1) + ".");
+        lblQuestion.setText((Q.size()) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             correctAnswer.setText((String)(String)CA.get(count));
             dummy1.setText((String)(String)A.get(dcount));

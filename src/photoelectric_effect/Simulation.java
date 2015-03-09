@@ -164,8 +164,8 @@ public class Simulation extends JPanel{
         }
         for (int i=0;i<electron.size();i++){
             if (electron.get(i).getStatus()==true){
-                    electron.get(i).Update();
-                }
+                electron.get(i).Update();
+            }
         }
     }
         
@@ -224,7 +224,7 @@ public class Simulation extends JPanel{
                             photonY=134;
                             game.photon.add(new Photon(photonX,photonY)); break;
                         case 5:
-                            photonX=30;
+                            photonX=40;
                             photonY=300;
                             game.photon.add(new Photon(photonX,photonY)); break;
                         case 6:
@@ -315,7 +315,6 @@ public class Simulation extends JPanel{
                 else if (Units=="MeV"){
                     game.workFunction=mt.getMeV();
                 }
-                
                 clickRestart=false;
                 pause=false;
             }
@@ -349,7 +348,7 @@ public class Simulation extends JPanel{
                             photonY=134;
                             game.photon.add(new Photon(photonX,photonY)); break;
                         case 5:
-                            photonX=30;
+                            photonX=40;
                             photonY=300;
                             game.photon.add(new Photon(photonX,photonY)); break;
                         case 6:
@@ -379,8 +378,6 @@ public class Simulation extends JPanel{
                     }
                     game.photon.get(game.NoOfIntensity-1).getHf(currentWave, Units);
                 }
-                
-                
             }
         });
         DecIntensity.addActionListener(new ActionListener(){
@@ -399,7 +396,6 @@ public class Simulation extends JPanel{
                         JComboBox combo = (JComboBox)e.getSource();
                         currentMetal = (String) combo.getSelectedItem();
                         clickRestart=true;
-                        
             }
         });
         JCBWaves.addActionListener(new ActionListener(){
@@ -430,7 +426,6 @@ public class Simulation extends JPanel{
                 pause=true;
             }
         });
-        
         game.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -495,7 +490,7 @@ public class Simulation extends JPanel{
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 6:
                     electronX=70;
-                    electronY=450;
+                    electronY=400;
                     game.electron.add(new Electron(electronX, electronY));break;
                 case 7:
                     electronX=519;
@@ -523,14 +518,13 @@ public class Simulation extends JPanel{
                     game.electron.add(new Electron(electronX, electronY));break;
             } 
         }
-        
         game.photon.add(new Photon(30,50));
         while(true) { //game loop
-                while(pause!=true){
-                    game.update();
-                    game.repaint();
-                    Thread.sleep(25);
-                }
+            while(pause!=true){
+                game.update();
+                game.repaint();
+                Thread.sleep(25);
+            }
         }
     }
 }

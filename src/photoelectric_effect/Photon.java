@@ -23,10 +23,6 @@ public class Photon{
     int maxx=678;
     int maxy=557;
     
-    int PhoRed=199;
-    int PhoBlue=0;
-    int PhoGreen=99;
-    
     double joules=1.99E-22; //only used the average of the energy range in both joules and MeV
     double MeV=1.24E-5;
     Boolean absorb=false;
