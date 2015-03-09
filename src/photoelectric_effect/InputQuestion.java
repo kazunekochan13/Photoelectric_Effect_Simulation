@@ -8,6 +8,7 @@ package photoelectric_effect;
 
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class InputQuestion extends JFrame{
     
@@ -46,7 +47,6 @@ public class InputQuestion extends JFrame{
         dummy2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         dummy3 = new javax.swing.JTextField();
-        settingsBtn = new javax.swing.JButton();
         helpBtn = new javax.swing.JButton();
         CloseWindowBtn = new javax.swing.JButton();
         nextQuestionBtn = new javax.swing.JButton();
@@ -152,9 +152,12 @@ public class InputQuestion extends JFrame{
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        settingsBtn.setText("Settings");
-
         helpBtn.setText("Help");
+        helpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpBtnActionPerformed(evt);
+            }
+        });
 
         CloseWindowBtn.setText("Close window");
         CloseWindowBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -211,8 +214,6 @@ public class InputQuestion extends JFrame{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CloseWindowBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(settingsBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(helpBtn))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(22, 22, 22)
@@ -235,7 +236,6 @@ public class InputQuestion extends JFrame{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(settingsBtn)
                         .addComponent(helpBtn)
                         .addComponent(CloseWindowBtn)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -304,7 +304,21 @@ public class InputQuestion extends JFrame{
     }//GEN-LAST:event_nextQuestionBtnActionPerformed
 
     private void saveCurrentQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCurrentQuestionBtnActionPerformed
-        
+        Q=QS.returnQuestions();
+        CA=QS.returnCorAnswers();
+        A=QS.returnAnswers();
+        if ("".equals(dummy1.getText()) || "".equals(dummy2.getText()) || "".equals(dummy3.getText()) || "".equals(correctAnswer.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Please fill in all the blanks");
+        }
+        else{
+            Q.add(txtAreaQuestion.getText());
+            CA.add(correctAnswer.getText());
+            A.add(dummy1.getText());
+            A.add(dummy2.getText());
+            A.add(dummy3.getText());
+            QS.WriteToFiles(Q, CA, A);
+            JOptionPane.showMessageDialog(rootPane, "Successfully saved to file");
+        }
     }//GEN-LAST:event_saveCurrentQuestionBtnActionPerformed
 
     private void previousQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousQuestionBtnActionPerformed
@@ -376,6 +390,11 @@ public class InputQuestion extends JFrame{
             dcount=dcount+1;
     }//GEN-LAST:event_firstQuestionBtnActionPerformed
 
+    private void helpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpBtnActionPerformed
+        HelpForm help = new HelpForm();
+        help.setVisible(true);
+    }//GEN-LAST:event_helpBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -431,7 +450,6 @@ public class InputQuestion extends JFrame{
     private javax.swing.JButton nextQuestionBtn;
     private javax.swing.JButton previousQuestionBtn;
     private javax.swing.JButton saveCurrentQuestionBtn;
-    private javax.swing.JButton settingsBtn;
     private javax.swing.JTextArea txtAreaQuestion;
     // End of variables declaration//GEN-END:variables
 }

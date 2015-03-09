@@ -6,6 +6,7 @@ package photoelectric_effect;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -29,25 +30,25 @@ public class WriteFiles {
     public void EditFiles(ArrayList questions, ArrayList corAnswer, ArrayList answers) throws IOException{ //overwrite files
         
         FileWriter fw = new FileWriter(pathQ);
-        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter pt = new PrintWriter(fw);
         for (int i=0; i < questions.size();i++){
-            bw.write((String)questions.get(i));
+            pt.printf("%s" + "%n", (String)questions.get(i));
         }
-        bw.close();
+        pt.close();
         
         FileWriter fw2 = new FileWriter(pathCA);
-        BufferedWriter bw2 = new BufferedWriter(fw2);
+        PrintWriter pt2 = new PrintWriter(fw2);
         for (int i=0; i< corAnswer.size(); i++){
-            bw2.write((String)corAnswer.get(i));
+            pt2.printf("%s" + "%n", (String)corAnswer.get(i));
         }
-        bw2.close();
+        pt2.close();
         
         FileWriter fw3 = new FileWriter(pathA);
-        BufferedWriter bw3 = new BufferedWriter(fw3);
+        PrintWriter pt3 = new PrintWriter(fw3);
         for (int i=0; i < answers.size(); i++){
-            bw3.write((String)answers.get(i));
+            pt3.printf("%s" + "%n", (String)answers.get(i));
         }
-        bw3.close();
+        pt3.close();
         
     }
     
