@@ -57,6 +57,7 @@ public class InputQuestion extends JFrame{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Question Input Form");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Question input/Edit form");
@@ -64,13 +65,15 @@ public class InputQuestion extends JFrame{
         lblQuestion.setText("Question 1:");
 
         txtAreaQuestion.setColumns(20);
+        txtAreaQuestion.setLineWrap(true);
         txtAreaQuestion.setRows(5);
-        txtAreaQuestion.setText("First Question");
+        txtAreaQuestion.setText("What is the threshold frequency of a metal?");
+        txtAreaQuestion.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtAreaQuestion);
 
         jLabel3.setText("Correct answer for the question above:");
 
-        correctAnswer.setText("Correct Answer");
+        correctAnswer.setText("It is the minimum frequency of light which will cause photoelectron emission");
         correctAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correctAnswerActionPerformed(evt);
@@ -79,7 +82,7 @@ public class InputQuestion extends JFrame{
 
         jLabel4.setText("Dummy answer number 1:");
 
-        dummy1.setText("dummy1");
+        dummy1.setText("It is the intensity of light shining on the metal surface");
         dummy1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dummy1ActionPerformed(evt);
@@ -88,7 +91,7 @@ public class InputQuestion extends JFrame{
 
         jLabel5.setText("Dummy answer number 2:");
 
-        dummy2.setText("dummy2");
+        dummy2.setText("It is the number of photoelectrons which will be emitted");
         dummy2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dummy2ActionPerformed(evt);
@@ -97,7 +100,7 @@ public class InputQuestion extends JFrame{
 
         jLabel6.setText("Dummy answer number 3:");
 
-        dummy3.setText("dummy3");
+        dummy3.setText("It is the maximum wavelength of photons which will release photoelectrons");
         dummy3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dummy3ActionPerformed(evt);

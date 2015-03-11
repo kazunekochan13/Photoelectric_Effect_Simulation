@@ -51,23 +51,23 @@ public class Metal {
                     phiMeV = 4.42f; 
                     phiJoules = 7.07E-19;
                     phiMeV = Double.parseDouble(String.format("%.3g%n", phiMeV));break;
-                    case "Iridium(Ir)":
+                case "Iridium(Ir)":
                     phiMeV = 5.67f; 
                     phiJoules = 9.07E-19;
                     phiMeV = Double.parseDouble(String.format("%.3g%n", phiMeV));break;
-                    case "Yttrium(Y)":
+                case "Yttrium(Y)":
                     phiMeV = 3.1f; 
                     phiJoules = 4.96E-19;
                     phiMeV = Double.parseDouble(String.format("%.3g%n", phiMeV));break;
-                    case "Zinc(Zn)":
+                case "Zinc(Zn)":
                     phiMeV = 3.63f; 
                     phiJoules = 5.81E-19;
                     phiMeV = Double.parseDouble(String.format("%.3g%n", phiMeV));break;
-                    case "Nickel(Ni)":
+                case "Nickel(Ni)":
                     phiMeV = 5.04f; 
                     phiJoules = 8.06E-19;
                     phiMeV = Double.parseDouble(String.format("%.3g%n", phiMeV));break;
-                    case "Cobalt(Co)":
+                case "Cobalt(Co)":
                     phiMeV = 5f; 
                     phiJoules = 8E-19;
             }

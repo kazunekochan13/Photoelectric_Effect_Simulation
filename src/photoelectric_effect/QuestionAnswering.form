@@ -4,6 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="Questions section"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -71,10 +72,10 @@
                       <Component id="helpBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblQuestion" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="85" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="answer1" min="-2" max="-2" attributes="0"/>
@@ -125,7 +126,7 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+            <Property name="text" type="java.lang.String" value="What is the threshold frequency of a metal?"/>
             <Property name="wrapStyleWord" type="boolean" value="true"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
@@ -134,7 +135,7 @@
     </Container>
     <Component class="javax.swing.JRadioButton" name="answer1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="This is answer number 1"/>
+        <Property name="text" type="java.lang.String" value="It is the intensity of light shining on the metal surface"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answer1ActionPerformed"/>
@@ -142,17 +143,17 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="answer2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="This is answer number 2"/>
+        <Property name="text" type="java.lang.String" value="It is the number of photoelectrons which will be emitted"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="answer3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="First Answer"/>
+        <Property name="text" type="java.lang.String" value="It is the minimum frequency of light which will cause photoelectron emission"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="answer4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="This is answer number 4"/>
+        <Property name="text" type="java.lang.String" value="It is the maximum wavelength of photons which will release photoelectrons"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCheck">

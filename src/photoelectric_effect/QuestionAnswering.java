@@ -59,6 +59,7 @@ public class QuestionAnswering extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Questions section");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Photoelectric effect questions");
@@ -70,23 +71,23 @@ public class QuestionAnswering extends javax.swing.JFrame {
         txtAreaQuestion.setColumns(20);
         txtAreaQuestion.setLineWrap(true);
         txtAreaQuestion.setRows(5);
-        txtAreaQuestion.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+        txtAreaQuestion.setText("What is the threshold frequency of a metal?");
         txtAreaQuestion.setWrapStyleWord(true);
         txtAreaQuestion.setOpaque(false);
         jScrollPane2.setViewportView(txtAreaQuestion);
 
-        answer1.setText("This is answer number 1");
+        answer1.setText("It is the intensity of light shining on the metal surface");
         answer1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 answer1ActionPerformed(evt);
             }
         });
 
-        answer2.setText("This is answer number 2");
+        answer2.setText("It is the number of photoelectrons which will be emitted");
 
-        answer3.setText("First Answer");
+        answer3.setText("It is the minimum frequency of light which will cause photoelectron emission");
 
-        answer4.setText("This is answer number 4");
+        answer4.setText("It is the maximum wavelength of photons which will release photoelectrons");
 
         btnCheck.setText("Check Answer");
         btnCheck.addActionListener(new java.awt.event.ActionListener() {
@@ -170,10 +171,10 @@ public class QuestionAnswering extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(settingsBtn)
                         .addComponent(helpBtn)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblQuestion)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(answer1)
                 .addGap(33, 33, 33)

@@ -177,6 +177,7 @@ public class Simulation extends JPanel{
         JFrame frame = new JFrame("Photoelectric Effect Simulator");
         frame.setSize(900,600);
         frame.setVisible(true);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //change to dispose later
         
         JPanel p = new JPanel(new GridBagLayout());
