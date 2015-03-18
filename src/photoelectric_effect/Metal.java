@@ -1,6 +1,9 @@
-package photoelectric_effect;
+/*
+ *
+ *
+ */
 
-import java.lang.Math.*;
+package photoelectric_effect;
 
 public class Metal {
     
@@ -10,11 +13,10 @@ public class Metal {
     int HfJoules;
     int Intensity;
     String nameOfMetal;
-    String DisplayM; //Display MeV values
+    String DisplayM;
     String material;
     
     public Metal(){
-        
     }
     
     public void assignWF(String metal){

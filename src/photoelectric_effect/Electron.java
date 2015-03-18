@@ -10,7 +10,6 @@ import java.text.NumberFormat;
 
 public class Electron{
     
-    //attributes
     int x;
     int y;
     int xv=2;
@@ -78,7 +77,6 @@ public class Electron{
                 DecimalFormat df = new DecimalFormat("0.000E0");
                 energy = Double.parseDouble(df.format(energy));
             }
-            
             changeStatus();
         }
     }

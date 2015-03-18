@@ -1,5 +1,6 @@
 /*
  * Class is used to read data from all text files
+ *
  */
 
 package photoelectric_effect;

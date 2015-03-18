@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *
+ *
  */
 
 package photoelectric_effect;
@@ -47,7 +46,6 @@ public class InputQuestion extends JFrame{
         dummy2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         dummy3 = new javax.swing.JTextField();
-        helpBtn = new javax.swing.JButton();
         CloseWindowBtn = new javax.swing.JButton();
         nextQuestionBtn = new javax.swing.JButton();
         saveCurrentQuestionBtn = new javax.swing.JButton();
@@ -74,38 +72,18 @@ public class InputQuestion extends JFrame{
         jLabel3.setText("Correct answer for the question above:");
 
         correctAnswer.setText("It is the minimum frequency of light which will cause photoelectron emission");
-        correctAnswer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                correctAnswerActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Dummy answer number 1:");
 
         dummy1.setText("It is the intensity of light shining on the metal surface");
-        dummy1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dummy1ActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Dummy answer number 2:");
 
         dummy2.setText("It is the number of photoelectrons which will be emitted");
-        dummy2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dummy2ActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Dummy answer number 3:");
 
         dummy3.setText("It is the maximum wavelength of photons which will release photoelectrons");
-        dummy3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dummy3ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,7 +104,7 @@ public class InputQuestion extends JFrame{
                             .addComponent(lblQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addGap(0, 317, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,13 +132,6 @@ public class InputQuestion extends JFrame{
                 .addComponent(dummy3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        helpBtn.setText("Help");
-        helpBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                helpBtnActionPerformed(evt);
-            }
-        });
 
         CloseWindowBtn.setText("Close window");
         CloseWindowBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -213,12 +184,6 @@ public class InputQuestion extends JFrame{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CloseWindowBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(helpBtn))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(firstQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -229,7 +194,11 @@ public class InputQuestion extends JFrame{
                         .addComponent(nextQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lastQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(144, 144, 144)
+                        .addComponent(CloseWindowBtn)))
                 .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
@@ -238,9 +207,7 @@ public class InputQuestion extends JFrame{
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(helpBtn)
-                        .addComponent(CloseWindowBtn)))
+                    .addComponent(CloseWindowBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -255,22 +222,6 @@ public class InputQuestion extends JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void correctAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correctAnswerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_correctAnswerActionPerformed
-
-    private void dummy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dummy1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dummy1ActionPerformed
-
-    private void dummy2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dummy2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dummy2ActionPerformed
-
-    private void dummy3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dummy3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dummy3ActionPerformed
 
     private void CloseWindowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseWindowBtnActionPerformed
         this.dispose();
@@ -393,11 +344,6 @@ public class InputQuestion extends JFrame{
             dcount=dcount+1;
     }//GEN-LAST:event_firstQuestionBtnActionPerformed
 
-    private void helpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpBtnActionPerformed
-        HelpForm help = new HelpForm();
-        help.setVisible(true);
-    }//GEN-LAST:event_helpBtnActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -440,7 +386,6 @@ public class InputQuestion extends JFrame{
     private javax.swing.JTextField dummy2;
     private javax.swing.JTextField dummy3;
     private javax.swing.JButton firstQuestionBtn;
-    private javax.swing.JButton helpBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

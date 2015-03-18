@@ -5,15 +5,10 @@
 
 package photoelectric_effect;
 
-import java.awt.*;
-import java.lang.Math;
 import java.util.Random;
-import javax.swing.JPanel;
-
 
 public class Photon{
     
-    //attributes
     int x=50;
     int y=50;
     int xv=1;
@@ -23,7 +18,7 @@ public class Photon{
     int maxx=678;
     int maxy=557;
     
-    double joules=1.99E-22; //only used the average of the energy range in both joules and MeV
+    double joules=1.99E-22;
     double MeV=1.24E-5;
     Boolean absorb=false;
     
@@ -56,10 +51,6 @@ public class Photon{
                 joules=2.93E-19;
                 MeV=1.83;
                 MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
-            //case "Visible":
-                //joules=3.91E-19;
-                //MeV=2.44;
-                //MeV = Double.parseDouble(String.format("%.3g%n", MeV)); break;
             case "Blue":
                 joules=4.22E-19;
                 MeV=2.64;
@@ -80,7 +71,7 @@ public class Photon{
     }
     
     public double getEnergy(String units){
-        if (units=="J"){
+        if ("J".equals(units)){
             return joules;
         }
         else{

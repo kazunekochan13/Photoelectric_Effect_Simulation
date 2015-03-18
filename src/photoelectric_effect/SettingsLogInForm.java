@@ -1,22 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *
+ *
  */
 
 package photoelectric_effect;
 
 import java.util.Arrays;
 
-/**
- *
- * @author Owner
- */
 public class SettingsLogInForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SettingsLogInForm
-     */
     public SettingsLogInForm() {
         initComponents();
     }
@@ -51,12 +43,6 @@ public class SettingsLogInForm extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Password:");
-
-        passField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passFieldActionPerformed(evt);
-            }
-        });
 
         jButton3.setText("Close window");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -155,10 +141,6 @@ public class SettingsLogInForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void passFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passFieldActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();
