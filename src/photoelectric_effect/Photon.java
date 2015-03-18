@@ -27,10 +27,6 @@ public class Photon{
     double MeV=1.24E-5;
     Boolean absorb=false;
     
-    public Photon(){
-        
-    }
-    
     public Photon(int xPos, int yPos){
         x=xPos;
         y=yPos;
@@ -113,10 +109,6 @@ public class Photon{
     
     public Boolean getStatus(){
         return absorb;
-    }
-    
-    public void Energy(int metalNo){
-        
     }
     
     public void Move(){

@@ -24,10 +24,6 @@ public class Electron{
     
     Boolean release = false;
     
-    public Electron(){
-        
-    }
-    
     public Electron(int xPos, int yPos){
         x=xPos;
         y=yPos;

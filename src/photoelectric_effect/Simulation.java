@@ -11,46 +11,45 @@ import javax.swing.*;
 public class Simulation extends JPanel{
     
     //attributes
-    int ERed=46;
-    int EGreen=0;
-    int EBlue=184;
+    private final int ERed=46;
+    private final int EGreen=0;
+    private final int EBlue=184;
     
-    int PanRed=7;
-    int PanGreen=54;
-    int PanBlue=66;
+    private final int PanRed=7;
+    private final int PanGreen=54;
+    private final int PanBlue=66;
     
-    int PhoRed=199;
-    int PhoBlue=0;
-    int PhoGreen=99;
+    private final int PhoRed=199;
+    private final int PhoBlue=0;
+    private final int PhoGreen=99;
     
-    int MetRed=160;
-    int MetBlue=160;
-    int MetGreen=160;
+    private final int MetRed=160;
+    private final int MetBlue=160;
+    private final int MetGreen=160;
     
-    int txtRed=238;
-    int txtGreen=232;
-    int txtBlue=213;
+    private final int txtRed=238;
+    private final int txtGreen=232;
+    private final int txtBlue=213;
     
-    ArrayList<Electron> electron = new ArrayList<Electron>();
-    ArrayList<Photon> photon = new ArrayList<Photon>();
-    int count=0;
+    private final ArrayList<Electron> electron = new ArrayList<Electron>();
+    private final ArrayList<Photon> photon = new ArrayList<Photon>();
+    private int count=0;
     
-    int NoOfIntensity=1;
-    int MetalNo=1;
-    double workFunction=4.26; //initial MeV
-    double photonEnergy=1.24E-5; //intial MeV
+    private int NoOfIntensity=1;
+    private double workFunction=4.26; //initial MeV
+    private double photonEnergy=1.24E-5; //intial MeV
     
-    static Boolean pause=false;
-    static Boolean clickRestart=false;
-    static String[] EM={"Radiowaves", "Microwaves","Infrared", "Red","Blue", "UltraViolet", "X-Rays", "Gamma"};
-    static JComboBox JCBWaves = new JComboBox(EM);
-    static String[] WF={"Silver(Ag)", "Aluminium(Al)", "Gold(Au)", "Caesium(Cs)", "Copper(Cu)", "Lithium(Li)", "Lead(Pb)", "Tin(Sn)","Iridium(Ir)", "Yttrium(Y)","Zinc(Zn)","Nickel(Ni)","Cobalt(Co)"};
-    static JComboBox JCBMetal = new JComboBox(WF);
-    static String[] UN={"MeV", "Joules"};
-    static JComboBox JCBUnits = new JComboBox(UN);
-    static String currentWave="Radiowaves";
-    static String currentMetal="Silver(Ag)";
-    static String Units="MeV";
+    private static Boolean pause=false;
+    private static Boolean clickRestart=false;
+    private final static String[] EM={"Radiowaves", "Microwaves","Infrared", "Red","Blue", "UltraViolet", "X-Rays", "Gamma"};
+    private static final JComboBox JCBWaves = new JComboBox(EM);
+    private final static String[] WF={"Silver(Ag)", "Aluminium(Al)", "Gold(Au)", "Caesium(Cs)", "Copper(Cu)", "Lithium(Li)", "Lead(Pb)", "Tin(Sn)","Iridium(Ir)", "Yttrium(Y)","Zinc(Zn)","Nickel(Ni)","Cobalt(Co)"};
+    private static final JComboBox JCBMetal = new JComboBox(WF);
+    private static final String[] UN={"MeV", "Joules"};
+    private static final JComboBox JCBUnits = new JComboBox(UN);
+    private static String currentWave="Radiowaves";
+    private static String currentMetal="Silver(Ag)";
+    private static String Units="MeV";
     
     public Simulation(){
         
@@ -116,20 +115,6 @@ public class Simulation extends JPanel{
             paint.setColor(Color.RED);
             paint.drawString("Please click restart to see changes",685,133);
         }
-        /*int b=156;//yPos of text 53
-        for (int i=0; i < photon.size();i++){
-            paint.setColor(Color.WHITE);
-            if (i==0){
-                paint.drawString("Photon XPos: " + photon.get(i).readX(),685,b);
-            }
-            else{
-                b=b+19;
-                paint.drawString("PhotonXPos: " + photon.get(i).readX(),685,b);
-            }
-            b=b+19;
-            paint.drawString("Photon XPos: " + photon.get(i).readY(), 685, b);
-        }
-        */
         int b=156;
         paint.setColor(Text);
         paint.drawString("Photon Energy: " + photon.get(0).getEnergy(Units) + " " + Units, 685, b);
