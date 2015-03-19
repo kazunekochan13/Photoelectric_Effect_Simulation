@@ -155,114 +155,114 @@ public class Simulation extends JPanel{
         
     public void addElectron(){
         for (int i=0;i<13;i++){
-                    int electronX;
-                    int electronY;
-                    switch (i){
-                        case 1:
-                            electronX=132;
-                            electronY=356;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 2:
-                            electronX=270;
-                            electronY=345;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 3:    
-                            electronX=246;
-                            electronY=416;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 4:
-                            electronX=144;
-                            electronY=482;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 5:
-                            electronX=398;
-                            electronY=500;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 6:
-                            electronX=70;
-                            electronY=400;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 7:
-                            electronX=519;
-                            electronY=372;
-                            electron.add(new Electron(electronX,electronY));break;
-                        case 8:
-                            electronX=484;
-                            electronY=490;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 9:
-                            electronX=400;
-                            electronY=388;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 10:
-                            electronX=337;
-                            electronY=467;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 11:
-                            electronX=463;
-                            electronY=332;
-                            electron.add(new Electron(electronX, electronY));break;
-                        case 12:
-                            electronX=278;
-                            electronY=523;
-                            electron.add(new Electron(electronX, electronY));break;
-                    } 
-                }
+            int electronX;
+            int electronY;
+            switch (i){
+                case 1:
+                    electronX=132;
+                    electronY=356;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 2:
+                    electronX=270;
+                    electronY=345;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 3:    
+                    electronX=246;
+                    electronY=416;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 4:
+                    electronX=144;
+                    electronY=482;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 5:
+                    electronX=398;
+                    electronY=500;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 6:
+                    electronX=70;
+                    electronY=400;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 7:
+                    electronX=519;
+                    electronY=372;
+                    electron.add(new Electron(electronX,electronY));break;
+                case 8:
+                    electronX=484;
+                    electronY=490;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 9:
+                    electronX=400;
+                    electronY=388;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 10:
+                    electronX=337;
+                    electronY=467;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 11:
+                    electronX=463;
+                    electronY=332;
+                    electron.add(new Electron(electronX, electronY));break;
+                case 12:
+                    electronX=278;
+                    electronY=523;
+                    electron.add(new Electron(electronX, electronY));break;
+            } 
+        }
     }
     
     public void addPhoton(int i){
         int photonX;
-                    int photonY;
-                    switch (i){
-                        case 0:
-                            photonX=30;
-                            photonY=50;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 1:
-                            photonX=246;
-                            photonY=252;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 2:
-                            photonX=134;
-                            photonY=70;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 3:
-                            photonX=40;
-                            photonY=164;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 4:
-                            photonX=281;
-                            photonY=134;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 5:
-                            photonX=40;
-                            photonY=300;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 6:
-                            photonX=465;
-                            photonY=192;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 7:
-                            photonX=395;
-                            photonY=200;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 8:
-                            photonX=290;
-                            photonY=55;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 9:
-                            photonX=222;
-                            photonY=122;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 10:
-                            photonX=390;
-                            photonY=63;
-                            photon.add(new Photon(photonX,photonY)); break;
-                        case 11:
-                            photonX=152;
-                            photonY=145;
-                            photon.add(new Photon(photonX,photonY)); break;
-                    }
+        int photonY;
+        switch (i){
+            case 0:
+                photonX=30;
+                photonY=50;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 1:
+                photonX=246;
+                photonY=252;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 2:
+                photonX=134;
+                photonY=70;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 3:
+                photonX=40;
+                photonY=164;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 4:
+                photonX=281;
+                photonY=134;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 5:
+                photonX=40;
+                photonY=300;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 6:
+                photonX=465;
+                photonY=192;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 7:
+                photonX=395;
+                photonY=200;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 8:
+                photonX=290;
+                photonY=55;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 9:
+                photonX=222;
+                photonY=122;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 10:
+                photonX=390;
+                photonY=63;
+                photon.add(new Photon(photonX,photonY)); break;
+            case 11:
+                photonX=152;
+                photonY=145;
+                photon.add(new Photon(photonX,photonY)); break;
+        }
     }
     
     public static void main(String[] args) throws InterruptedException {
@@ -363,14 +363,6 @@ public class Simulation extends JPanel{
                 QuestionAnswering QAForm = new QuestionAnswering();
                 QAForm.setVisible(true);
                 pause=true;
-            }
-        });
-        game.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println("x: " + e.getX());
-                System.out.println("y: " + e.getY());
-               
             }
         });
         
