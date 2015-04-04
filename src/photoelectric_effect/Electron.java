@@ -10,18 +10,18 @@ import java.text.NumberFormat;
 
 public class Electron{
     
-    int x;
-    int y;
-    int xv=2;
-    int yv=-2;
-    int minx=0;
-    int miny=40;
-    int maxx=678;
-    int maxy=557;
+    private int x;
+    private int y;
+    private int xv=2;
+    private int yv=-2;
+    private int minx=0;
+    private int miny=40;
+    private int maxx=678;
+    private int maxy=557;
     
-    double energy;
+    private double energy;
     
-    Boolean release = false;
+    private Boolean release = false;
     
     public Electron(int xPos, int yPos){
         x=xPos;

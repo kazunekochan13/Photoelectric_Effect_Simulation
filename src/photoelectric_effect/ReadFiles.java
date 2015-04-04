@@ -5,24 +5,25 @@
 
 package photoelectric_effect;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ReadFiles {
     
-    private final String pathQ;
-    private final String pathCA;
-    private final String pathA;
+    //private final String pathQ;
+    //private final String pathCA;
+    //private final String pathA;
+    File pathQ;
+    File pathCA;
+    File pathA;
     
-    public ReadFiles(String Q, String CA, String A){
+    public ReadFiles(File Q, File CA, File A){
         pathQ=Q;
         pathCA=CA;
         pathA=A;
     }
   
-    int FindLine(String findPath) throws IOException{
+    int FindLine(File findPath) throws IOException{
         FileReader fr =new FileReader(findPath);
         BufferedReader br = new BufferedReader(fr);
         

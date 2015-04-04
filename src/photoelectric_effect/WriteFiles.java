@@ -5,18 +5,19 @@
 
 package photoelectric_effect;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class WriteFiles {
     
-    private final String pathQ;
-    private final String pathCA;
-    private final String pathA;
+    //private final String pathQ;
+    //private final String pathCA;
+    //private final String pathA;
+    File pathQ;
+    File pathCA;
+    File pathA;
     
-    public WriteFiles(String question, String corAnswer, String answer){
+    public WriteFiles(File question, File corAnswer, File answer){
         pathQ = question;
         pathCA = corAnswer;
         pathA = answer;

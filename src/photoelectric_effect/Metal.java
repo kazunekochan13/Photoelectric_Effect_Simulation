@@ -7,14 +7,8 @@ package photoelectric_effect;
 
 public class Metal {
     
-    double phiMeV;
-    double phiJoules;
-    int HfMeV;
-    int HfJoules;
-    int Intensity;
-    String nameOfMetal;
-    String DisplayM;
-    String material;
+    private double phiMeV;
+    private double phiJoules;
     
     public Metal(){
     }
@@ -77,10 +71,6 @@ public class Metal {
     
     public double getMeV(){
         return phiMeV;
-    }
-    
-    public String readMeV(){
-        return DisplayM;
     }
     
     public double getJoules(){

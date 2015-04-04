@@ -1,4 +1,6 @@
-//http://www.colorschemer.com/online.html
+/*
+ *
+ */
 
 package photoelectric_effect;
 
@@ -32,11 +34,9 @@ public class Simulation extends JPanel{
     
     private final ArrayList<Electron> electron = new ArrayList<>();
     private final ArrayList<Photon> photon = new ArrayList<>();
-    private int count=0;
     
     private int NoOfIntensity=1;
     private double workFunction=4.26;
-    private double photonEnergy=1.24E-5;
     
     private static Boolean pause=false;
     private static Boolean clickRestart=false;

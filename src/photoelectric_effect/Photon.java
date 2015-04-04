@@ -5,22 +5,20 @@
 
 package photoelectric_effect;
 
-import java.util.Random;
-
 public class Photon{
     
-    int x=50;
-    int y=50;
-    int xv=1;
-    int yv=3;
-    int minx=0;
-    int miny=40;
-    int maxx=678;
-    int maxy=557;
+    private int x=50;
+    private int y=50;
+    private int xv=1;
+    private int yv=3;
+    private int minx=0;
+    private int miny=40;
+    private int maxx=678;
+    private int maxy=557;
     
-    double joules=1.99E-22;
-    double MeV=1.24E-5;
-    Boolean absorb=false;
+    private double joules=1.99E-22;
+    private double MeV=1.24E-5;
+    private Boolean absorb=false;
     
     public Photon(int xPos, int yPos){
         x=xPos;
@@ -36,7 +34,6 @@ public class Photon{
     }
     
     public void getHf(String emRegion, String Units){
-        Random r = new Random();
         switch (emRegion){ //all photon energies are average of the range
             case "Radiowaves":
                 joules=1.99E-24;
