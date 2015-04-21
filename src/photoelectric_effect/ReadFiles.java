@@ -10,9 +10,6 @@ import java.util.ArrayList;
 
 public class ReadFiles {
     
-    //private final String pathQ;
-    //private final String pathCA;
-    //private final String pathA;
     File pathQ;
     File pathCA;
     File pathA;

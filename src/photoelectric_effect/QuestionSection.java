@@ -10,12 +10,9 @@ import java.util.ArrayList;
 
 public class QuestionSection {
     
-    //private final String pathQ = "C:\\Users\\Owner\\Documents\\NetBeansProjects\\ZombieTest\\src\\photoelectric_effect\\Resources\\Questions.txt";
-    //private final String pathCA = "C:\\Users\\Owner\\Documents\\NetBeansProjects\\ZombieTest\\src\\photoelectric_effect\\Resources\\CorrectAnswers.txt";
-    //private final String pathA = "C:\\Users\\Owner\\Documents\\NetBeansProjects\\ZombieTest\\src\\photoelectric_effect\\Resources\\Answers.txt";
-    private final File pathQ = new File("Resources\\Questions.txt");
-    private final File pathCA = new File("Resources\\CorrectAnswers.txt");
-    private final File pathA = new File("Resources\\Answers.txt");
+    private final File pathQ = new File("Resources/Questions.txt");
+    private final File pathCA = new File("Resources/CorrectAnswers.txt");
+    private final File pathA = new File("Resources/Answers.txt");
     ReadFiles rf = new ReadFiles(pathQ,pathCA,pathA);
     WriteFiles wf = new WriteFiles(pathQ, pathCA, pathA);
     private ArrayList QuesList;

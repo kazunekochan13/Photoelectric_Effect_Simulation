@@ -235,7 +235,7 @@ public class InputQuestion extends JFrame{
             count++;
             if (count==Q.size()){
                 //append question
-                lblQuestion.setText((count+1) + ".");
+                lblQuestion.setText("Question " + (count+1) + ".");
                 txtAreaQuestion.setText("Enter new question here");
                 correctAnswer.setText("Enter correct answer");
                 dummy1.setText("Enter dummy answer 1");
@@ -244,7 +244,7 @@ public class InputQuestion extends JFrame{
             }
             else{
                 //setting question and answers on form
-                lblQuestion.setText((count+1) + ".");
+                lblQuestion.setText("Question " + (count+1) + ".");
                 txtAreaQuestion.setText((String)Q.get(count));
                 correctAnswer.setText((String)(String)CA.get(count));
                 dummy1.setText((String)(String)A.get(dcount));
@@ -283,7 +283,7 @@ public class InputQuestion extends JFrame{
         }
         else if (count==Q.size()){
             count--;
-            lblQuestion.setText((count+1) + ".");
+            lblQuestion.setText("Question " + (count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             correctAnswer.setText((String)(String)CA.get(count));
             dcount=dcount-3;
@@ -296,7 +296,7 @@ public class InputQuestion extends JFrame{
         }
         else{
             count--;
-            lblQuestion.setText((count+1) + ".");
+            lblQuestion.setText("Question " + (count+1) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             correctAnswer.setText((String)(String)CA.get(count));
             dcount=dcount-6;
@@ -316,7 +316,7 @@ public class InputQuestion extends JFrame{
         A=QS.returnAnswers();
         count=Q.size()-1;
         dcount=(Q.size()*3)-3;
-        lblQuestion.setText((Q.size()) + ".");
+        lblQuestion.setText("Question " + (Q.size()) + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             correctAnswer.setText((String)(String)CA.get(count));
             dummy1.setText((String)(String)A.get(dcount));
@@ -333,7 +333,7 @@ public class InputQuestion extends JFrame{
         A=QS.returnAnswers();
         count=0;
         dcount=0;
-        lblQuestion.setText(1 + ".");
+        lblQuestion.setText("Question " + 1 + ".");
             txtAreaQuestion.setText((String)Q.get(count));
             correctAnswer.setText((String)(String)CA.get(count));
             dummy1.setText((String)(String)A.get(dcount));

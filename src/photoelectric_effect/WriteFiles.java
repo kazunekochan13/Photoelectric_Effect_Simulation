@@ -10,9 +10,6 @@ import java.util.ArrayList;
 
 public class WriteFiles {
     
-    //private final String pathQ;
-    //private final String pathCA;
-    //private final String pathA;
     File pathQ;
     File pathCA;
     File pathA;
@@ -24,7 +21,6 @@ public class WriteFiles {
     }
     
     public void EditFiles(ArrayList questions, ArrayList corAnswer, ArrayList answers) throws IOException{ //overwrite files
-        
         FileWriter fw = new FileWriter(pathQ);
         PrintWriter pt = new PrintWriter(fw);
         for (int i=0; i < questions.size();i++){

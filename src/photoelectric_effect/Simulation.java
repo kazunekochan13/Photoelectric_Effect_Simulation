@@ -5,7 +5,6 @@
 package photoelectric_effect;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -136,7 +135,7 @@ public class Simulation extends JPanel{
                 int radii;
                 int distanceA;
                 int distanceB;
-                distanceA = ((electron.get(i).getxPos()+10)-(photon.get(j).getxPos()+3))*((electron.get(i).getxPos()+10)-(photon.get(j).getxPos()+3));
+                distanceA = (((electron.get(i).getxPos()+10)-(photon.get(j).getxPos()+3)))*(((electron.get(i).getxPos()+10)-(photon.get(j).getxPos()+3)));
                 distanceB = (((electron.get(i).getyPos()+10)-(photon.get(j).getyPos()+3)))*(((electron.get(i).getyPos()+10)-(photon.get(j).getyPos()+1)));
                 radii = (int) Math.sqrt(((distanceA)+(distanceB)));
                 if (radii<=11 && electron.get(i).getStatus()==false){
@@ -276,7 +275,7 @@ public class Simulation extends JPanel{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //change to dispose later
         
         JPanel p = new JPanel(new GridBagLayout());
-        JButton Play = new JButton("Play/Pause");
+        JButton PlayPause = new JButton("Play/Pause");
         JButton Restart = new JButton("Restart");
         JButton AddIntensity = new JButton("Add Intensity");
         JButton DecIntensity = new JButton("Decrease Intensity");
@@ -285,7 +284,7 @@ public class Simulation extends JPanel{
         int CountIntensity=1;
         
         //action listeners for buttons
-        Play.addActionListener(new ActionListener(){
+        PlayPause.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 pause=!pause;
             }
@@ -370,7 +369,7 @@ public class Simulation extends JPanel{
         c.insets = new Insets(3,3,0,3);
         c.gridx=0;
         c.gridy=0;
-        p.add(Play,c);
+        p.add(PlayPause,c);
         c.gridx=1;
         c.gridy=0;
         p.add(Restart,c);
@@ -396,7 +395,7 @@ public class Simulation extends JPanel{
         frame.add(game);
         
         game.addElectron();
-        game.photon.add(new Photon(30,50)); //might make this a new void method
+        game.addPhoton(0);
         while(true) { //game loop
             while(pause!=true){
                 game.update();

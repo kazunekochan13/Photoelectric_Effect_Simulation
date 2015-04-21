@@ -101,18 +101,6 @@ public class Photon{
     
     public void Move(){
         if (absorb==false){
-            if (x<minx) {
-                xv=-xv;
-            }
-            if (x>maxx){
-                xv=-xv;
-            }
-            if (y<miny) {
-                yv=-yv;
-            }
-            if (y>maxy){
-                yv=-yv;
-            }
             x=x+xv;
             y=y+yv;
         }
