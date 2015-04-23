@@ -1,5 +1,6 @@
-/*
- *
+/*Photoelectric Effect Simulation - A2 Computing COMP4 project 
+ *By: Safwah Bakri
+ *Simulation form
  */
 
 package photoelectric_effect;
